@@ -43,7 +43,7 @@
       android:id="@+id/logo_chat"
       android:layout_width="38.83dp"
       android:layout_height="42.25dp"
-      android:layout_marginEnd="30dp"
+      android:layout_marginEnd="25dp"
       android:background="@drawable/logo"
       android:elevation="20dp"
       android:outlineAmbientShadowColor="#14000000"

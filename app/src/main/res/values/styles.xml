@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="welcome_to">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20.56sp</item>
         <item name="android:letterSpacing">0.01</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="recipe_book">
-        <item name="android:textSize">36sp</item>
+        <item name="android:textSize">41.11sp</item>
         <item name="android:letterSpacing">0.01</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="email">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="password">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="label">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:textColor">#34A853</item>
     </style>
 
     <style name="forgot_pass">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="login_with">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="or">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="Create_an_account">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
@@ -60,7 +60,7 @@
         <item name="fontWeight">700</item>
     </style>
 
-    <style name="text">
+    <style name="swipeText">
         <item name="android:textSize">11.5sp</item>
         <item name="android:textColor">#445262</item>
         <item name="fontFamily">Apercu Pro</item>
@@ -75,7 +75,7 @@
         <item name="lineHeight">35sp</item>
     </style>
 
-    <style name="placeholder">
+    <style name="searchPlaceholder">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">#8894A2</item>
         <item name="lineHeight">18sp</item>

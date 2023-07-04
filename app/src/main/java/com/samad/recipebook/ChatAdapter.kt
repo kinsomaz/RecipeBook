@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.samad.recipebook.databinding.ChatViewBinding
-import com.samad.recipebook.databinding.NotificationViewBinding
+import com.squareup.picasso.Picasso
 
 private lateinit var binding: ChatViewBinding
 
@@ -32,6 +32,7 @@ class ChatAdapter (val context: Context, private val chats:List<Chat>): Recycler
             chat?.let {
                 binding.nameChat.text = chat.name
                 binding.chatMessage.text = chat.latestMessage
+                Picasso.with(context).load(chat.image).into(binding.chatImage)
             }
         }
 

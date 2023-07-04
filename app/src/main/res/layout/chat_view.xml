@@ -16,11 +16,11 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- dot -->
-    <View
+    <ImageView
         android:id="@+id/chatImage"
         android:layout_width="45.68dp"
         android:layout_height="45.68dp"
-        android:background="@drawable/chat_image1"
+        android:src="@drawable/chat_image1"
         app:layout_constraintStart_toStartOf="@+id/chatView"
         app:layout_constraintTop_toTopOf="@+id/chatView"
         />
