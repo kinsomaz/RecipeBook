@@ -18,12 +18,12 @@
     <!-- dot -->
     <View
         android:id="@+id/chatImage"
-        android:layout_width="5.71dp"
-        android:layout_height="5.71dp"
-        android:background="@drawable/dot"
+        android:layout_width="45.68dp"
+        android:layout_height="45.68dp"
+        android:background="@drawable/chat_image1"
         app:layout_constraintStart_toStartOf="@+id/chatView"
         app:layout_constraintTop_toTopOf="@+id/chatView"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        />
 
     <!-- Title -->
     <TextView
