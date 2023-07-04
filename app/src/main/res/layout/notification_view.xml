@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginTop="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 1 -->
+    <View
+        android:id="@+id/notificationView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- dot -->
+    <View
+        android:id="@+id/dot_notification"
+        android:layout_width="5.71dp"
+        android:layout_height="5.71dp"
+        android:layout_marginTop="7.5dp"
+        android:background="@drawable/dot"
+        app:layout_constraintStart_toStartOf="@+id/notificationView"
+        app:layout_constraintTop_toTopOf="@+id/notificationView" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/notificationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17.13dp"
+        android:text="@string/notificationTitle"
+        android:textAppearance="@style/notificationTitle"
+        android:lineSpacingExtra="-1sp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@+id/dot_notification"
+        app:layout_constraintTop_toTopOf="@+id/notificationView" />
+
+    <!-- Date -->
+    <TextView
+        android:id="@+id/notificationDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9.14dp"
+        android:text="@string/notificationDate"
+        android:textAppearance="@style/notificationDate"
+        android:lineSpacingExtra="1sp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="@+id/notificationTitle"
+        app:layout_constraintTop_toBottomOf="@+id/notificationTitle" />
+
+    <!-- sub line -->
+    <View
+        android:id="@+id/sub_line"
+        android:layout_width="wrap_content"
+        android:layout_height="1.14dp"
+        android:layout_marginTop="13.70dp"
+        android:background="@drawable/sub_line"
+        android:alpha="0.2"
+        app:layout_constraintStart_toStartOf="@+id/dot_notification"
+        app:layout_constraintTop_toBottomOf="@+id/notificationDate"
+        app:layout_constraintBottom_toBottomOf="@+id/notificationView"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
