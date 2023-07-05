@@ -6,4 +6,172 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profileFirstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="411dp"
+        android:background="@drawable/profile_rectangle"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Back -->
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="45.5dp"
+            android:layout_height="45.5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="53.5dp"
+            android:src="@drawable/back"
+            android:contentDescription="@string/back"
+            app:layout_constraintTop_toTopOf="@+id/profileFirstLayout"
+            app:layout_constraintStart_toStartOf="@+id/profileFirstLayout"/>
+
+        <ImageView
+            android:id="@+id/profile_small_rec"
+            android:layout_width="66dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="60.5dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/profile_small_rec"
+            app:layout_constraintEnd_toEndOf="@+id/profileFirstLayout"
+            app:layout_constraintTop_toTopOf="@+id/profileFirstLayout" />
+
+        <!-- Text -->
+        <TextView
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/editText"
+            android:textAppearance="@style/editText"
+            app:layout_constraintStart_toStartOf="@+id/profile_small_rec"
+            app:layout_constraintTop_toTopOf="@+id/profile_small_rec"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_small_rec"
+            app:layout_constraintEnd_toEndOf="@+id/profile_small_rec"/>
+
+       <ImageView
+           android:id="@+id/profile_image"
+           android:layout_width="103dp"
+           android:layout_height="103dp"
+           android:layout_marginTop="90.22dp"
+           android:src="@drawable/profile_avi"
+           app:layout_constraintStart_toStartOf="@+id/profileFirstLayout"
+           app:layout_constraintEnd_toEndOf="@+id/profileFirstLayout"
+           app:layout_constraintTop_toTopOf="@id/profileFirstLayout"/>
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/profile_name"
+            android:textAppearance="@style/profile_name"
+            android:lineSpacingExtra="13sp"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image"
+            app:layout_constraintStart_toStartOf="@+id/profileFirstLayout"
+            app:layout_constraintEnd_toEndOf="@+id/profileFirstLayout" />
+
+        <!-- Count -->
+        <TextView
+            android:id="@+id/friends_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/friends_count"
+            android:textAppearance="@style/friends_count"
+            android:gravity="top"
+            app:layout_constraintTop_toBottomOf="@+id/profile_name"
+            app:layout_constraintStart_toStartOf="@id/profileFirstLayout"
+            app:layout_constraintEnd_toStartOf="@id/networks_count"
+            />
+
+        <!-- Count -->
+        <TextView
+            android:id="@+id/networks_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/networks_count"
+            android:textAppearance="@style/networks_count"
+            android:gravity="top"
+            app:layout_constraintTop_toBottomOf="@+id/profile_name"
+            app:layout_constraintEnd_toStartOf="@id/uploads_count"
+            app:layout_constraintStart_toEndOf="@id/friends_count"
+            />
+
+        <!-- Count -->
+        <TextView
+            android:id="@+id/uploads_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/uploads_count"
+            android:textAppearance="@style/uploads_count"
+            android:gravity="top"
+            app:layout_constraintTop_toBottomOf="@+id/profile_name"
+            app:layout_constraintStart_toEndOf="@id/networks_count"
+            app:layout_constraintEnd_toEndOf="@id/profileFirstLayout"
+            />
+
+        <!-- Count -->
+        <TextView
+            android:id="@+id/friends_count_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="top"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/friends_count_title"
+            android:textAppearance="@style/friends_count_title"
+            android:translationY="-3sp"
+            app:layout_constraintEnd_toEndOf="@id/friends_count"
+            app:layout_constraintStart_toStartOf="@id/friends_count"
+            app:layout_constraintTop_toBottomOf="@+id/friends_count" />
+
+        <!-- Count -->
+        <TextView
+            android:id="@+id/networks_count_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="top"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/networks_count_title"
+            android:textAppearance="@style/networks_count_title"
+            android:translationY="-3sp"
+            app:layout_constraintEnd_toEndOf="@id/networks_count"
+            app:layout_constraintStart_toStartOf="@id/networks_count"
+            app:layout_constraintTop_toBottomOf="@+id/networks_count" />
+
+        <!-- Count -->
+        <TextView
+            android:id="@+id/uploads_count_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="top"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/uploads_count_title"
+            android:textAppearance="@style/uploads_count_title"
+            android:translationY="-3sp"
+            app:layout_constraintEnd_toEndOf="@id/uploads_count"
+            app:layout_constraintStart_toStartOf="@id/uploads_count"
+            app:layout_constraintTop_toBottomOf="@+id/uploads_count" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profileSecondLayout"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginTop="-88dp"
+        android:translationZ="46dp"
+        android:background="@drawable/card"
+        app:layout_constraintTop_toBottomOf="@id/profileFirstLayout">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

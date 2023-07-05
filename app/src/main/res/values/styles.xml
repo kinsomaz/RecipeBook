@@ -238,6 +238,73 @@
         <item name="lineHeight">22sp</item>
     </style>
 
+    <style name="editText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#414144</item>
+        <item name="fontFamily">Apercu Pro</item>
+        <item name="lineHeight">15sp</item>
+    </style>
+
+    <style name="profile_name">
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="fontFamily">Apercu Pro</item>
+        <item name="lineHeight">34sp</item>
+    </style>
+
+    <style name="friends_count">
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#E5E5E5</item>
+        <item name="fontFamily">Apercu Pro</item>
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <style name="networks_count">
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#E5E5E5</item>
+        <item name="fontFamily">Apercu Pro</item>
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <style name="uploads_count">
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#E5E5E5</item>
+        <item name="fontFamily">Apercu Pro</item>
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <style name="friends_count_title">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#9EDBDBDB</item>
+        <item name="fontFamily">Apercu Pro</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <style name="networks_count_title">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#9EDBDBDB</item>
+        <item name="fontFamily">Apercu Pro</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <style name="uploads_count_title">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#9EDBDBDB</item>
+        <item name="fontFamily">Apercu Pro</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+
+
+
+
+
+
+
 
 
 
