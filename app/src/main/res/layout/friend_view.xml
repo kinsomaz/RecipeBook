@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="117dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/friendInnerView"
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/card1"
+        android:layout_marginHorizontal="20dp"
+        android:translationZ="10dp"
+        android:outlineSpotShadowColor="#03000000"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- dot -->
+    <ImageView
+        android:id="@+id/friendImage"
+        android:layout_width="45.68dp"
+        android:layout_height="45.68dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="5dp"
+        android:elevation="10dp"
+        android:src="@drawable/chat_image1"
+        app:layout_constraintStart_toStartOf="@+id/friendInnerView"
+        app:layout_constraintTop_toTopOf="@+id/friendInnerView"
+        app:layout_constraintBottom_toBottomOf="@id/friendInnerView"
+        />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/friendName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17.13dp"
+        android:elevation="10dp"
+        android:gravity="center_vertical"
+        android:text="@string/friendName"
+        android:textAppearance="@style/friendName"
+        app:layout_constraintStart_toEndOf="@+id/friendImage"
+        app:layout_constraintTop_toTopOf="@+id/friendImage" />
+
+    <!-- Date -->
+    <TextView
+        android:id="@+id/friendsNum"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="5dp"
+        android:elevation="10dp"
+        android:text="@string/friendsNum"
+        android:textAppearance="@style/friendsNum"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="@+id/friendName"
+        app:layout_constraintTop_toBottomOf="@+id/friendName" />
+
+    <!-- Btn -->
+    <View
+        android:id="@+id/removeFriendView"
+        android:layout_width="121dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="10dp"
+        android:background="@drawable/search_field"
+        app:layout_constraintEnd_toEndOf="@+id/friendInnerView"
+        app:layout_constraintBottom_toBottomOf="@+id/friendInnerView"
+        app:layout_constraintTop_toTopOf="@+id/friendInnerView"
+        />
+
+    <!-- Search -->
+    <TextView
+        android:id="@+id/remove_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:text="@string/remove_friend"
+        android:textAppearance="@style/remove_friend"
+        android:lineSpacingExtra="10sp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="@+id/removeFriendView"
+        app:layout_constraintBottom_toBottomOf="@+id/removeFriendView"
+        app:layout_constraintStart_toStartOf="@+id/removeFriendView"
+        app:layout_constraintEnd_toEndOf="@+id/removeFriendView"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

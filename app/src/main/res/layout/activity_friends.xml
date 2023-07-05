@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/friendsFirstLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Friends">
+
+    <!-- back -->
+    <View
+        android:id="@+id/back_friendsIcon"
+        android:layout_width="45.68dp"
+        android:layout_height="45.68dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="74.23dp"
+        android:background="@drawable/back1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Chats -->
+    <TextView
+        android:id="@+id/friendsPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17.13dp"
+        android:text="@string/friendsPage"
+        android:textAppearance="@style/friendsPage"
+        android:lineSpacingExtra="13sp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@+id/back_friendsIcon"
+        app:layout_constraintTop_toTopOf="@+id/back_friendsIcon"
+        app:layout_constraintBottom_toBottomOf="@+id/back_friendsIcon" />
+
+    <!-- logo -->
+    <View
+        android:id="@+id/logo_friends"
+        android:layout_width="38.83dp"
+        android:layout_height="42.25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/logo"
+        android:elevation="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/back_friendsIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/back_friendsIcon" />
+
+    <!-- Search -->
+    <View
+        android:id="@+id/searchViewFriends"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="41dp"
+        android:background="@drawable/rectangle"
+        android:elevation="10dp"
+        android:outlineSpotShadowColor="#14000000"
+        app:layout_constraintEnd_toEndOf="@+id/friendsFirstLayout"
+        app:layout_constraintStart_toStartOf="@+id/friendsFirstLayout"
+        app:layout_constraintTop_toBottomOf="@+id/back_friendsIcon" />
+
+    <!-- Placeholder -->
+    <TextView
+        android:id="@+id/searchPlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:elevation="20dp"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/searchPlaceholder"
+        android:textAppearance="@style/searchPlaceholder"
+        app:layout_constraintBottom_toBottomOf="@+id/searchViewFriends"
+        app:layout_constraintStart_toStartOf="@+id/searchViewFriends"
+        app:layout_constraintTop_toTopOf="@+id/searchViewFriends" />
+
+    <!-- Search -->
+    <ImageView
+        android:id="@+id/searchIcon"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="14dp"
+        android:elevation="20dp"
+        android:src="@drawable/search_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/searchViewFriends"
+        app:layout_constraintEnd_toEndOf="@+id/searchViewFriends"
+        app:layout_constraintTop_toTopOf="@+id/searchViewFriends" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/friendsSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="29dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="-3sp"
+        android:text="@string/friendsSubTitle"
+        android:textAppearance="@style/friendsSubTitle"
+        app:layout_constraintStart_toStartOf="@+id/friendsFirstLayout"
+        app:layout_constraintTop_toBottomOf="@+id/searchViewFriends" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/friendsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@+id/friendsFirstLayout"
+        app:layout_constraintTop_toBottomOf="@+id/friendsSubTitle" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

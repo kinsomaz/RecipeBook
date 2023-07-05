@@ -34,8 +34,11 @@
     <string name="chatsPage">Chats</string>
     <string name="nameChat">Adebayo Apercu</string>
     <string name="chat_message">A selection of chicken dishes served together …</string>
-
-
+    <string name="friendsPage">Friends</string>
+    <string name="friendsSubTitle">My Friends</string>
+    <string name="friendName">Adebayo Apercu</string>
+    <string name="friendsNum">100k Friends</string>
+    <string name="remove_friend">Remove Friend</string>
 
 
 </resources>
