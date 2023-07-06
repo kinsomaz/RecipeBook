@@ -47,6 +47,16 @@
     <string name="friends_count_title">FRIENDS</string>
     <string name="networks_count_title">NETWORKS</string>
     <string name="uploads_count_title">UPLOADS</string>
+    <string name="unfollow_name">Courtney Bennett</string>
+    <string name="about">About</string>
+    <string name="about_text">Combining data, design, and machine learning to build intelligent products and services that improve people\'s lives.</string>
+    <string name="likes">Likes</string>
+    <string name="searchFriends">Search Friends</string>
+    <string name="networksPage">Networks</string>
+    <string name="searchNetworks">Search Networks</string>
+    <string name="networksSubTitle">Networks you joined</string>
+    <string name="networks_explore">Explore more networks</string>
+    <string name="favouritesPage">Favourites</string>
 
 
 </resources>

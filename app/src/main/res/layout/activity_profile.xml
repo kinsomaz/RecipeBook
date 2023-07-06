@@ -15,7 +15,7 @@
 
         <!-- Back -->
         <ImageView
-            android:id="@+id/back"
+            android:id="@+id/profile_back"
             android:layout_width="45.5dp"
             android:layout_height="45.5dp"
             android:layout_marginStart="20dp"
@@ -170,6 +170,52 @@
         android:translationZ="46dp"
         android:background="@drawable/card"
         app:layout_constraintTop_toBottomOf="@id/profileFirstLayout">
+
+        <!-- About -->
+        <TextView
+            android:id="@+id/about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/about"
+            android:textAppearance="@style/about"
+            android:lineSpacingExtra="17sp"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="@+id/profileSecondLayout"
+            app:layout_constraintTop_toTopOf="@+id/profileSecondLayout" />
+
+        <!-- Text -->
+        <TextView
+            android:id="@+id/about_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="30dp"
+            android:paddingEnd="38dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/about_text"
+            android:textAppearance="@style/about_text"
+            android:lineSpacingExtra="5sp"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/about"
+            app:layout_constraintStart_toStartOf="@id/profileSecondLayout"
+            app:layout_constraintEnd_toEndOf="@id/profileSecondLayout" />
+
+        <TextView
+            android:id="@+id/likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/likes"
+            android:textAppearance="@style/likes"
+            android:lineSpacingExtra="17sp"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="@+id/profileSecondLayout"
+            app:layout_constraintTop_toBottomOf="@+id/about_text" />
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/networksFirstLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Networks">
+
+    <!-- back -->
+    <View
+        android:id="@+id/back_networksIcon"
+        android:layout_width="45.68dp"
+        android:layout_height="45.68dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="74.23dp"
+        android:background="@drawable/back1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Chats -->
+    <TextView
+        android:id="@+id/networksPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17.13dp"
+        android:text="@string/networksPage"
+        android:textAppearance="@style/networksPage"
+        android:lineSpacingExtra="13sp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@+id/back_networksIcon"
+        app:layout_constraintTop_toTopOf="@+id/back_networksIcon"
+        app:layout_constraintBottom_toBottomOf="@+id/back_networksIcon" />
+
+    <!-- logo -->
+    <View
+        android:id="@+id/logo_network"
+        android:layout_width="38.83dp"
+        android:layout_height="42.25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/logo"
+        android:elevation="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/back_networksIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/back_networksIcon" />
+
+    <!-- Search -->
+    <View
+        android:id="@+id/searchViewNetworks"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="41dp"
+        android:background="@drawable/rectangle"
+        android:elevation="10dp"
+        android:outlineSpotShadowColor="#14000000"
+        app:layout_constraintEnd_toEndOf="@+id/networksFirstLayout"
+        app:layout_constraintStart_toStartOf="@+id/networksFirstLayout"
+        app:layout_constraintTop_toBottomOf="@+id/back_networksIcon" />
+
+    <!-- Placeholder -->
+    <TextView
+        android:id="@+id/searchNetwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:elevation="20dp"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/searchNetworks"
+        android:textAppearance="@style/searchNetworks"
+        app:layout_constraintBottom_toBottomOf="@+id/searchViewNetworks"
+        app:layout_constraintStart_toStartOf="@+id/searchViewNetworks"
+        app:layout_constraintTop_toTopOf="@+id/searchViewNetworks" />
+
+    <!-- Search -->
+    <ImageView
+        android:id="@+id/searchIcon"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="14dp"
+        android:elevation="20dp"
+        android:src="@drawable/search_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/searchViewNetworks"
+        app:layout_constraintEnd_toEndOf="@+id/searchViewNetworks"
+        app:layout_constraintTop_toTopOf="@+id/searchViewNetworks" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/networksSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="29dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="-3sp"
+        android:text="@string/networksSubTitle"
+        android:textAppearance="@style/networksSubTitle"
+        app:layout_constraintStart_toStartOf="@+id/networksFirstLayout"
+        app:layout_constraintTop_toBottomOf="@+id/searchViewNetworks" />
+
+    <!-- Explore -->
+    <TextView
+        android:id="@+id/explore"
+        android:layout_width="160dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="35dp"
+        android:text="@string/networks_explore"
+        android:textAppearance="@style/explore"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/networksFirstLayout"
+        app:layout_constraintStart_toStartOf="@+id/networksFirstLayout"
+        app:layout_constraintEnd_toEndOf="@id/networksFirstLayout"/>
+
+    <!-- Underline -->
+    <ImageView
+        android:id="@+id/underline"
+        android:layout_width="160dp"
+        android:layout_height="2.23dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/underline"
+        android:alpha="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/explore"
+        app:layout_constraintStart_toStartOf="@id/explore"
+        app:layout_constraintEnd_toEndOf="@id/explore"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

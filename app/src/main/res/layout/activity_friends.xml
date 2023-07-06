@@ -60,14 +60,14 @@
 
     <!-- Placeholder -->
     <TextView
-        android:id="@+id/searchPlaceholder"
+        android:id="@+id/searchFriends"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
         android:elevation="20dp"
         android:lineSpacingExtra="2sp"
-        android:text="@string/searchPlaceholder"
-        android:textAppearance="@style/searchPlaceholder"
+        android:text="@string/searchFriends"
+        android:textAppearance="@style/searchFriends"
         app:layout_constraintBottom_toBottomOf="@+id/searchViewFriends"
         app:layout_constraintStart_toStartOf="@+id/searchViewFriends"
         app:layout_constraintTop_toTopOf="@+id/searchViewFriends" />
