@@ -52,7 +52,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="41dp"
         android:background="@drawable/rectangle"
-        android:elevation="10dp"
+        android:translationZ="10dp"
         android:outlineSpotShadowColor="#14000000"
         app:layout_constraintEnd_toEndOf="@+id/networksFirstLayout"
         app:layout_constraintStart_toStartOf="@+id/networksFirstLayout"
@@ -123,6 +123,114 @@
         app:layout_constraintTop_toBottomOf="@+id/explore"
         app:layout_constraintStart_toStartOf="@id/explore"
         app:layout_constraintEnd_toEndOf="@id/explore"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toBottomOf="@id/networksSubTitle"
+        app:layout_constraintBottom_toTopOf="@id/explore"
+        android:orientation="horizontal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/firstInnerLayout"
+            android:layout_width="188dp"
+            android:layout_height="112dp"
+            android:visibility="visible">
+        <View
+            android:id="@+id/firstNetworkInnerView"
+            android:layout_width="165dp"
+            android:layout_height="87dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/card1"
+            android:translationZ="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/firstInnerLayout" />
+
+        <ImageView
+            android:id="@+id/bitmap1"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="5dp"
+            android:translationZ="10dp"
+            android:background="@drawable/bitmap1"
+            app:layout_constraintStart_toStartOf="@id/firstNetworkInnerView"
+            app:layout_constraintEnd_toStartOf="@id/first_recipe_title"
+            app:layout_constraintTop_toTopOf="@id/firstNetworkInnerView"
+            app:layout_constraintBottom_toBottomOf="@id/firstNetworkInnerView"
+            />
+
+            <TextView
+                android:id="@+id/first_recipe_title"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="@string/first_recipe_title"
+                android:translationZ="10dp"
+                android:textAppearance="@style/network_recipe_title"
+                android:lineSpacingExtra="3sp"
+                app:layout_constraintEnd_toEndOf="@id/firstNetworkInnerView"
+                app:layout_constraintStart_toEndOf="@id/bitmap1"
+                app:layout_constraintTop_toTopOf="@id/firstNetworkInnerView"
+                app:layout_constraintBottom_toBottomOf="@id/firstNetworkInnerView"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/secondInnerLayout"
+            android:layout_width="188dp"
+            android:layout_height="112dp"
+            android:visibility="visible">
+            <View
+                android:id="@+id/secondNetworkInnerView"
+                android:layout_width="165dp"
+                android:layout_height="87dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/card1"
+                android:translationZ="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/secondInnerLayout" />
+
+            <ImageView
+                android:id="@+id/bitmap2"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="5dp"
+                android:translationZ="10dp"
+                android:background="@drawable/bitmap1"
+                app:layout_constraintStart_toStartOf="@id/secondNetworkInnerView"
+                app:layout_constraintEnd_toStartOf="@id/second_recipe_title"
+                app:layout_constraintTop_toTopOf="@id/secondNetworkInnerView"
+                app:layout_constraintBottom_toBottomOf="@id/secondNetworkInnerView"
+                />
+
+            <TextView
+                android:id="@+id/second_recipe_title"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="@string/first_recipe_title"
+                android:translationZ="10dp"
+                android:textAppearance="@style/network_recipe_title"
+                android:lineSpacingExtra="3sp"
+                app:layout_constraintEnd_toEndOf="@id/secondNetworkInnerView"
+                app:layout_constraintStart_toEndOf="@id/bitmap2"
+                app:layout_constraintTop_toTopOf="@id/secondNetworkInnerView"
+                app:layout_constraintBottom_toBottomOf="@id/secondNetworkInnerView"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    </LinearLayout>
 
 
 
