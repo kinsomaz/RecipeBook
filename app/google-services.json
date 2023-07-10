@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "950924470118",
+    "project_id": "recipe-book-8f6d1",
+    "storage_bucket": "recipe-book-8f6d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950924470118:android:c2f2eeafa3c14fd2a84aa7",
+        "android_client_info": {
+          "package_name": "com.samad.recipebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "950924470118-g8lv0t0dclin2jsfqqskuhpq1763vf9e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.samad.recipebook",
+            "certificate_hash": "2f639c0ad5932b65a27f83f51d1a0325a69c25a8"
+          }
+        },
+        {
+          "client_id": "950924470118-5e8ffd69slcho911a39adfmnbgfg79u0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqQ6DXgGdlN_WKqyqEtAhIQKlTjBeqJiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "950924470118-5e8ffd69slcho911a39adfmnbgfg79u0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

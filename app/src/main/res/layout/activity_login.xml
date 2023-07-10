@@ -42,7 +42,6 @@
         android:background="@drawable/logo" />
 
 
-
     <View
         android:id="@+id/emailInputView"
         android:layout_width="match_parent"
@@ -53,6 +52,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recipe_book" />
 
+
+
     <EditText
         android:id="@+id/emailInput"
         android:layout_width="wrap_content"
@@ -60,6 +61,7 @@
         android:layout_marginStart="21.70dp"
         android:gravity="center_vertical"
         android:hint="@string/email"
+        android:inputType="textEmailAddress"
         android:lineSpacingExtra="8sp"
         android:textAppearance="@style/email"
         app:layout_constraintStart_toStartOf="@+id/emailInputView"
@@ -83,6 +85,7 @@
         android:layout_marginStart="21.70dp"
         android:gravity="center_vertical"
         android:hint="@string/password"
+        android:inputType="textPassword"
         android:lineSpacingExtra="8sp"
         android:textAppearance="@style/password"
         app:layout_constraintStart_toStartOf="@+id/passwordInputView"
