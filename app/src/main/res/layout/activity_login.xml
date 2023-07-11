@@ -49,6 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="73.5dp"
         android:background="@drawable/input"
+        app:boxStrokeColor="@color/green"
+        app:hintTextColor="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recipe_book">
@@ -61,11 +63,7 @@
             android:layout_marginBottom="5dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:lineSpacingExtra="8sp"
-            android:textAppearance="@style/email"
-            app:layout_constraintBottom_toBottomOf="@+id/emailInputView"
-            app:layout_constraintStart_toStartOf="@+id/emailInputView"
-            app:layout_constraintTop_toTopOf="@+id/emailInputView" />
+            android:textAppearance="@style/email" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,9 +72,11 @@
         android:id="@+id/passwordInputView"
         style="@style/LoginTextInputOuterFieldStyle"
         android:layout_width="match_parent"
-        android:layout_height="51.39dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="18.27dp"
         android:background="@drawable/input"
+        app:boxStrokeColor="@color/green"
+        app:hintTextColor="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailInputView"
@@ -88,14 +88,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:gravity="center_vertical"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:lineSpacingExtra="8sp"
-            android:textAppearance="@style/password"
-            app:layout_constraintBottom_toBottomOf="@+id/passwordInputView"
-            app:layout_constraintStart_toStartOf="@+id/passwordInputView"
-            app:layout_constraintTop_toTopOf="@+id/passwordInputView" />
+            android:textAppearance="@style/password" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
