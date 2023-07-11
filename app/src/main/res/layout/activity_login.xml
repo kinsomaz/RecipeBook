@@ -42,55 +42,62 @@
         android:background="@drawable/logo" />
 
 
-    <View
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailInputView"
+        style="@style/LoginTextInputOuterFieldStyle"
         android:layout_width="match_parent"
-        android:layout_height="51.39dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="73.5dp"
         android:background="@drawable/input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipe_book" />
+        app:layout_constraintTop_toBottomOf="@+id/recipe_book">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:lineSpacingExtra="8sp"
+            android:textAppearance="@style/email"
+            app:layout_constraintStart_toStartOf="@+id/emailInputView"
+            app:layout_constraintTop_toTopOf="@+id/emailInputView"
+            app:layout_constraintBottom_toBottomOf="@+id/emailInputView"
+            style="@style/LoginTextInputInnerFieldStyle" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-
-    <EditText
-        android:id="@+id/emailInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21.70dp"
-        android:gravity="center_vertical"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:lineSpacingExtra="8sp"
-        android:textAppearance="@style/email"
-        app:layout_constraintStart_toStartOf="@+id/emailInputView"
-        app:layout_constraintTop_toTopOf="@+id/emailInputView"
-        app:layout_constraintBottom_toBottomOf="@+id/emailInputView"/>
-
-    <View
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordInputView"
+        style="@style/LoginTextInputOuterFieldStyle"
         android:layout_width="match_parent"
         android:layout_height="51.39dp"
         android:layout_marginTop="18.27dp"
         android:background="@drawable/input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailInputView" />
+        app:layout_constraintTop_toBottomOf="@+id/emailInputView">
 
-    <EditText
-        android:id="@+id/passwordInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21.70dp"
-        android:gravity="center_vertical"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:lineSpacingExtra="8sp"
-        android:textAppearance="@style/password"
-        app:layout_constraintStart_toStartOf="@+id/passwordInputView"
-        app:layout_constraintTop_toTopOf="@+id/passwordInputView"
-        app:layout_constraintBottom_toBottomOf="@+id/passwordInputView"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordInput"
+            style="@style/LoginTextInputInnerFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:lineSpacingExtra="8sp"
+            android:textAppearance="@style/password"
+            app:layout_constraintStart_toStartOf="@+id/passwordInputView"
+            app:layout_constraintTop_toTopOf="@+id/passwordInputView"
+            app:layout_constraintBottom_toBottomOf="@+id/passwordInputView"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/forgot_pass"
