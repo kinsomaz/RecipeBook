@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.samad.recipebook.databinding.FragmentSignUpBinding
 
@@ -24,12 +25,11 @@ class SignUp : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.textView.setOnClickListener {
-            val intent = Intent(this.context, Login::class.java)
-            startActivity(intent)
+            it.findNavController().navigate(R.id.action_signUp_to_login)
 
         }
 
-        binding.button.setOnClickListener {
+        binding.button.setOnClickListener {view: View ->
             val email = binding.emailEt.text.toString()
             val pass = binding.passET.text.toString()
             val confirmPass = binding.confirmPassEt.text.toString()
@@ -38,9 +38,8 @@ class SignUp : Fragment() {
                 if (pass == confirmPass) {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
-
-                            val intent = Intent(this.context, Login::class.java)
-                            startActivity(intent)
+                            Toast.makeText(this.context, "Account created Successfully. \n You need to Login", Toast.LENGTH_SHORT).show()
+                            view.findNavController().navigate(R.id.action_signUp_to_login)
 
                         } else {
                             Toast.makeText(this.context, it.exception.toString(), Toast.LENGTH_SHORT).show()

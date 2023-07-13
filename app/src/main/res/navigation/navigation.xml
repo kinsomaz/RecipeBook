@@ -3,9 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/chats">
+    app:startDestination="@id/login">
     <fragment
-        android:id="@+id/chats"
-        android:name="com.samad.recipebook.Chats"
-        android:label="fragment_chats" />
+        android:id="@+id/login"
+        android:name="com.samad.recipebook.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_login_to_signUp"
+            app:destination="@id/signUp" />
+    </fragment>
+    <fragment
+        android:id="@+id/home"
+        android:name="com.samad.recipebook.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.samad.recipebook.SignUp"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUp_to_login"
+            app:destination="@id/login" />
+    </fragment>
 </navigation>
