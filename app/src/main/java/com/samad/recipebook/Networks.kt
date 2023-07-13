@@ -1,11 +1,22 @@
 package com.samad.recipebook
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 
-class Networks : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.samad.recipebook.databinding.FragmentNetworksBinding
+
+class Networks : Fragment() {
+
+    private lateinit var binding: FragmentNetworksBinding
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_networks)
+        binding = FragmentNetworksBinding.inflate(layoutInflater)
+        val view = binding.root
+
+        return view
+
     }
 }

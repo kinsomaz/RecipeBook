@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.samad.recipebook.databinding.ChatViewBinding
 import com.squareup.picasso.Picasso
 
-private lateinit var binding: ChatViewBinding
-
 class ChatAdapter (val context: Context, private val chats:List<Chat>): RecyclerView.Adapter<ChatAdapter.MyViewHolder>(){
+
+    private lateinit var binding: ChatViewBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         binding = ChatViewBinding.inflate(LayoutInflater.from(context), parent ,false)

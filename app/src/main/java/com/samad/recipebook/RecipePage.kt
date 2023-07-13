@@ -1,30 +1,34 @@
 package com.samad.recipebook
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.samad.recipebook.databinding.ActivityRecipeBinding
+import com.samad.recipebook.databinding.FragmentRecipeBinding
 
-private lateinit var binding: ActivityRecipeBinding
+class RecipePage : Fragment() {
 
-class RecipePage : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    private lateinit var binding: FragmentRecipeBinding
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreate(savedInstanceState)
-        binding = ActivityRecipeBinding.inflate(layoutInflater)
+        binding = FragmentRecipeBinding.inflate(layoutInflater)
         val view = binding.root
-        setContentView(view)
 
         setUpRecyclerView()
+
+        return view
 
     }
 
     private fun setUpRecyclerView() {
-        val layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(binding.firstRecyclerView.context)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         binding.firstRecyclerView.layoutManager = layoutManager
 
-        val adapter = RecipeAdapter(this,Recipe.Supplier.recipes)
+        val adapter = RecipeAdapter(binding.firstRecyclerView.context,Recipe.Supplier.recipes)
         binding.firstRecyclerView.adapter = adapter
     }
 }

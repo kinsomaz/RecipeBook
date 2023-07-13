@@ -1,11 +1,22 @@
 package com.samad.recipebook
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.samad.recipebook.databinding.FragmentUnfollowFriendBinding
 
-class Unfollow_friend : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+class Unfollow_friend : Fragment() {
+
+    private lateinit var binding: FragmentUnfollowFriendBinding
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_unfollow_friend)
+        binding = FragmentUnfollowFriendBinding.inflate(layoutInflater)
+        val view = binding.root
+
+        return view
+
     }
 }

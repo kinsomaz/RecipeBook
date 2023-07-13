@@ -1,29 +1,30 @@
 package com.samad.recipebook
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.samad.recipebook.databinding.ActivitySignUpBinding
+import com.samad.recipebook.databinding.FragmentSignUpBinding
 
+class SignUp : Fragment() {
 
-class SignUp : AppCompatActivity() {
-
-    private lateinit var binding: ActivitySignUpBinding
+    private lateinit var binding: FragmentSignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreate(savedInstanceState)
 
-        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        binding = FragmentSignUpBinding.inflate(layoutInflater)
         val view = binding.root
-        setContentView(view)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.textView.setOnClickListener {
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this.context, Login::class.java)
             startActivity(intent)
 
         }
@@ -38,22 +39,22 @@ class SignUp : AppCompatActivity() {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
 
-                            val intent = Intent(this, Login::class.java)
+                            val intent = Intent(this.context, Login::class.java)
                             startActivity(intent)
 
                         } else {
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this.context, it.exception.toString(), Toast.LENGTH_SHORT).show()
 
                         }
                     }
 
                 } else {
-                    Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this.context, "Password is not matching", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Empty Fields Are not Allowed!! ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, "Empty Fields Are not Allowed!! ", Toast.LENGTH_SHORT).show()
             }
         }
-
+        return view
     }
 }

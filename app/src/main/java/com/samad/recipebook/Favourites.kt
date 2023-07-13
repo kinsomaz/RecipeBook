@@ -1,11 +1,21 @@
 package com.samad.recipebook
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.samad.recipebook.databinding.FragmentFavouritesBinding
 
-class Favourites : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+class Favourites : Fragment() {
+
+    private lateinit var binding: FragmentFavouritesBinding
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_favourites)
+        binding = FragmentFavouritesBinding.inflate(layoutInflater)
+        val view = binding.root
+
+        return view
+
     }
 }

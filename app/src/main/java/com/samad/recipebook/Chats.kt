@@ -1,28 +1,34 @@
 package com.samad.recipebook
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.samad.recipebook.databinding.ActivityChatsBinding
+import com.samad.recipebook.databinding.FragmentChatsBinding
 
-private lateinit var binding: ActivityChatsBinding
+class Chats : Fragment() {
 
-class Chats : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    private lateinit var binding: FragmentChatsBinding
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreate(savedInstanceState)
-        binding = ActivityChatsBinding.inflate(layoutInflater)
+        binding = FragmentChatsBinding.inflate(layoutInflater)
         val view = binding.root
-        setContentView(view)
 
         setUpRecyclerView()
+
+        return view
     }
 
     private fun setUpRecyclerView() {
-        val layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(binding.chatRecyclerView.context)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         binding.chatRecyclerView.layoutManager = layoutManager
 
-        val adapter = ChatAdapter(this, Chat.Supplier.chats)
+        val adapter = ChatAdapter(binding.chatRecyclerView.context, Chat.Supplier.chats)
         binding.chatRecyclerView.adapter = adapter
     }
+
 }
