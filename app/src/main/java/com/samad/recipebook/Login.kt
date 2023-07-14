@@ -169,7 +169,7 @@ class Login : Fragment() {
     private fun handleFacebookAccessToken(token: AccessToken) {
         Log.d(TAG, "handleFacebookAccessToken:$token")
 
-        val credential = FacebookAuthProvider.getCredential(token.userId)
+        val credential = FacebookAuthProvider.getCredential(token.token)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
                 if (it.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
