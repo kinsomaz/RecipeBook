@@ -59,4 +59,11 @@
     <string name="first_recipe_title">Sausage &amp; Peppers Group </string>
 
 
+    <string name="facebook_app_id">221685427493535</string>
+    <string name="fb_login_protocol_scheme">fb221685427493535</string>
+    <string name="facebook_client_token">ca75dd2de4ac7ef7be5e1dc6ce3a1f2e</string>
+
+
+
+
 </resources>
