@@ -1,6 +1,5 @@
 package com.samad.recipebook
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.samad.recipebook.databinding.FragmentSignUpBinding
+
+lateinit var user_name: String
 
 class SignUp : Fragment() {
 
@@ -34,9 +35,10 @@ class SignUp : Fragment() {
             val pass = binding.passET.text.toString()
             val confirmPass = binding.confirmPassEt.text.toString()
 
+
             if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (pass == confirmPass) {
-                    firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
+                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
                             Toast.makeText(this.context, "Account created Successfully. \n You need to Login", Toast.LENGTH_SHORT).show()
                             view.findNavController().navigate(R.id.action_signUp_to_login)
@@ -46,6 +48,7 @@ class SignUp : Fragment() {
 
                         }
                     }
+
 
                 } else {
                     Toast.makeText(this.context, "Password is not matching", Toast.LENGTH_SHORT).show()

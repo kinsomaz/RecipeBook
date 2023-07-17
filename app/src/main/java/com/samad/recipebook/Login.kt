@@ -112,6 +112,16 @@ class Login : Fragment() {
         return view
     }
 
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = firebaseAuth.currentUser
+        if (currentUser != null){
+            view.findNavController().navigate(R.id.action_login_to_home)
+        }
+
+    }
+
     private fun loginWithFacebook() {
         callbackManager = CallbackManager.Factory.create()
         LoginManager.getInstance().logInWithReadPermissions(this,callbackManager, setOf("email", "public_profile"))

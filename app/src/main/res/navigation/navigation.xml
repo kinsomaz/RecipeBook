@@ -20,7 +20,11 @@
         android:id="@+id/home"
         android:name="com.samad.recipebook.Home"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
     <fragment
         android:id="@+id/signUp"
         android:name="com.samad.recipebook.SignUp"
@@ -30,4 +34,9 @@
             android:id="@+id/action_signUp_to_login"
             app:destination="@id/login" />
     </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.samad.recipebook.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
