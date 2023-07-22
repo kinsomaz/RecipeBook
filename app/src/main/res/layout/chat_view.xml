@@ -16,11 +16,11 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- dot -->
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/chatImage"
         android:layout_width="45.68dp"
         android:layout_height="45.68dp"
-        android:src="@drawable/chat_image1"
+        android:src="@drawable/image_avatar"
         app:layout_constraintStart_toStartOf="@+id/chatView"
         app:layout_constraintTop_toTopOf="@+id/chatView"
         />
@@ -60,6 +60,7 @@
         android:background="@drawable/sub_line"
         android:alpha="0.2"
         app:layout_constraintStart_toStartOf="@+id/chatView"
+        app:layout_constraintEnd_toEndOf="@id/chatView"
         app:layout_constraintTop_toBottomOf="@+id/chatView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

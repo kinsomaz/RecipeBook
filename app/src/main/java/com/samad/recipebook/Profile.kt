@@ -10,6 +10,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -17,6 +18,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
+import com.google.firebase.database.ktx.values
 import com.google.firebase.storage.FirebaseStorage
 import com.samad.recipebook.databinding.FragmentProfileBinding
 import java.util.Date
@@ -53,6 +55,11 @@ class Profile : Fragment() {
         database = FirebaseDatabase.getInstance()
         storage = FirebaseStorage.getInstance()
 
+        binding.profileBack.setOnClickListener {
+            it.findNavController().navigate(R.id.action_profile_to_home)
+        }
+
+
         binding.edit.setOnClickListener {
             binding.profileName.isVisible = false
             binding.nameEditView.isVisible = true
@@ -64,6 +71,8 @@ class Profile : Fragment() {
             startActivityLauncher.launch("image/**")
         }
 
+
+
         binding.saveButton.setOnClickListener {
             val name: String = binding.nameEdit.text.toString()
             if (name.isNotEmpty()) {
@@ -73,10 +82,9 @@ class Profile : Fragment() {
                         .child(firebaseAuth.currentUser!!.uid)
                     reference.putFile(selectedImage!!).addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            reference.downloadUrl.addOnCompleteListener { uri ->
+                            reference.downloadUrl.addOnSuccessListener { uri ->
                                 val imageUrl = uri.toString()
                                 val uid = firebaseAuth.currentUser!!.uid
-                                val name: String = binding.nameEdit.text.toString()
                                 val user = User(uid, name, imageUrl)
                                 database.reference
                                     .child("user")
@@ -86,7 +94,8 @@ class Profile : Fragment() {
 
                                     }
                             }
-                        } else {
+                        }
+                        else {
                             val uid = firebaseAuth.currentUser!!.uid
                             val name: String = binding.nameEdit.text.toString()
                             val user = User(uid, name, "No image")
@@ -113,13 +122,37 @@ class Profile : Fragment() {
                         }
                     }
 
-                } else {
-                    binding.saveButton.isVisible = true
-                    Toast.makeText(
-                        this.context,
-                        "please select a profile Image",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                }
+                else  {
+                    val imageRef = database.getReference("user/${firebaseAuth.currentUser?.uid}/profileImage")
+                    imageRef.addValueEventListener(object : ValueEventListener{
+
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val imageUrl = snapshot.value
+                            if(imageUrl == null){
+                                binding.saveButton.isVisible = true
+                                Toast.makeText(context, "please select a profile Image", Toast.LENGTH_SHORT).show()
+                            }
+                            else{
+                                val uid = firebaseAuth.currentUser!!.uid
+                                val user = User(uid, name, imageUrl.toString())
+                                database.reference
+                                    .child("User")
+                                    .child(uid)
+                                    .setValue(user)
+                                    .addOnCompleteListener {
+                                        binding.saveButton.isVisible = false
+                                        binding.nameEditView.isVisible = false
+                                        binding.profileName.isVisible = true
+                                    }
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+
+                        }
+                    })
+
                 }
 
             } else {
@@ -135,37 +168,44 @@ class Profile : Fragment() {
 
         }
 
-        return view
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         val uid = firebaseAuth.currentUser?.uid
         val userNameRef = database.getReference("user/$uid/name")
         userNameRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val userName = snapshot.getValue<String>()
-                if(userName != null){
-                    binding.profileName.text = userName
+                if (snapshot.getValue() != null) {
+                    val userName = snapshot.getValue<String>()
+                    if (userName != null) {
+                        binding.profileName.text = userName
+                    }
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                println("The read failed: " + error.code);
+                println("The read failed: " + error.code)
             }
 
         })
-        val storageReference = storage.reference.child("profile").child("$uid")
-        storageReference.downloadUrl.addOnCompleteListener {Uri ->
-            if (Uri.isSuccessful) {
-                val imageView = binding.profileImage
-                Glide.with(this)
-                    .load(Uri.result)
-                    .into(imageView)
+
+        val databaseRef = database.getReference("user/$uid/profileImage")
+        databaseRef.addValueEventListener(object : ValueEventListener{
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.value != null) {
+                    val imageView = binding.profileImage
+                    Glide.with(this@Profile)
+                        .load(snapshot.value)
+                        .into(imageView)
+                }
 
             }
-        }
+
+            override fun onCancelled(error: DatabaseError) {
+                println("The read failed: " + error.code)
+            }
+        })
+
+
+        return view
 
     }
 
@@ -179,17 +219,14 @@ class Profile : Fragment() {
                 .child(time.toString() + "")
             reference.putFile(uri!!).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    reference.downloadUrl.addOnCompleteListener { uri ->
+                    reference.downloadUrl.addOnSuccessListener { uri ->
                         val filePath = uri.toString()
-                        val obj = HashMap<String, Any>()
-                        obj["profileImage"] = filePath
                         database.reference
                             .child("user")
                             .child(FirebaseAuth.getInstance().currentUser!!.uid)
-                            .updateChildren(obj)
-                            .addOnCompleteListener {
-
-                            }
+                            .child("profileImage")
+                            .setValue(filePath)
+                            .addOnCompleteListener {}
                     }
                 }
             }

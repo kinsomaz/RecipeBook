@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/firstLayout"
         android:layout_width="fill_parent"
-        android:layout_height="145dp"
+        android:layout_height="110dp"
         android:background="#FFFFFF"
         android:clipToOutline="true"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,23 +24,22 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="74dp"
+            android:layout_marginTop="50dp"
             android:gravity="center_vertical"
             android:lineSpacingExtra="13sp"
             android:text="@string/welcome_dav"
             android:textAppearance="@style/welcome_dav"
-            android:textStyle="bold" />
+            android:textStyle="bold|normal" />
 
-        <View
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/avatar"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="66dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/circle"
-            android:foreground="@drawable/avatar"
+            android:src="@drawable/image_avatar"
             android:translationZ="46dp" />
         <!-- Avatar -->
     </RelativeLayout>
@@ -64,14 +63,14 @@
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent">
 
-            <View
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card1"
                 android:layout_width="114dp"
                 android:layout_height="98dp"
                 android:layout_marginStart="23dp"
                 android:layout_marginTop="46dp"
-                android:background="@drawable/card1"
-                android:elevation="20dp"
+                app:cardElevation="30dp"
+                app:cardCornerRadius="10dp"
                 android:outlineAmbientShadowColor="#14000000"
                 android:outlineSpotShadowColor="#80000000"
                 app:layout_constraintEnd_toStartOf="@+id/card2"
@@ -83,7 +82,7 @@
                 android:layout_width="28.5dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="17.13dp"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:src="@drawable/icon1"
                 app:layout_constraintBottom_toTopOf="@id/icon1"
                 app:layout_constraintEnd_toEndOf="@id/card1"
@@ -95,10 +94,11 @@
                 android:id="@+id/icon1Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:gravity="center_vertical"
                 android:lineSpacingExtra="1sp"
                 android:text="@string/recipes"
+                android:textFontWeight="400"
                 android:textAppearance="@style/recipes"
                 app:layout_constraintBottom_toBottomOf="@id/card1"
                 app:layout_constraintEnd_toEndOf="@id/card1"
@@ -107,14 +107,14 @@
 
 
             <!-- Card2 -->
-            <View
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card2"
                 android:layout_width="114dp"
                 android:layout_height="98dp"
                 android:layout_marginStart="11dp"
                 android:layout_marginTop="46dp"
-                android:background="@drawable/card1"
-                android:elevation="20dp"
+                app:cardElevation="30dp"
+                app:cardCornerRadius="10dp"
                 android:outlineAmbientShadowColor="#14000000"
                 android:outlineSpotShadowColor="#80000000"
                 app:layout_constraintEnd_toStartOf="@+id/card3"
@@ -126,7 +126,7 @@
                 android:layout_width="61.67dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="17.13dp"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:src="@drawable/icon2"
                 app:layout_constraintBottom_toTopOf="@id/icon2"
                 app:layout_constraintEnd_toEndOf="@id/card2"
@@ -138,10 +138,11 @@
                 android:id="@+id/icon2Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:gravity="center_vertical"
                 android:lineSpacingExtra="1sp"
                 android:text="@string/chatsPage"
+                android:textFontWeight="400"
                 android:textAppearance="@style/chats"
                 app:layout_constraintBottom_toBottomOf="@id/card2"
                 app:layout_constraintEnd_toEndOf="@id/card2"
@@ -149,15 +150,15 @@
                 app:layout_constraintTop_toBottomOf="@id/icon2" />
 
             <!-- Card3 -->
-            <View
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card3"
                 android:layout_width="114dp"
                 android:layout_height="98dp"
                 android:layout_marginStart="11dp"
                 android:layout_marginTop="46dp"
                 android:layout_marginEnd="23dp"
-                android:background="@drawable/card1"
-                android:elevation="20dp"
+                app:cardElevation="30dp"
+                app:cardCornerRadius="10dp"
                 android:outlineAmbientShadowColor="#14000000"
                 android:outlineSpotShadowColor="#80000000"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -169,7 +170,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="17.13dp"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:src="@drawable/icon3"
                 app:layout_constraintBottom_toTopOf="@id/icon3"
                 app:layout_constraintEnd_toEndOf="@id/card3"
@@ -181,9 +182,10 @@
                 android:id="@+id/icon3Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:gravity="center_vertical"
                 android:lineSpacingExtra="1sp"
+                android:textFontWeight="400"
                 android:text="@string/networks"
                 android:textAppearance="@style/networks"
                 app:layout_constraintBottom_toBottomOf="@id/card3"
@@ -192,14 +194,14 @@
                 app:layout_constraintTop_toBottomOf="@id/icon3" />
 
             <!-- Card4 -->
-            <View
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card4"
                 android:layout_width="114dp"
                 android:layout_height="98dp"
                 android:layout_marginStart="23dp"
                 android:layout_marginTop="23dp"
-                android:background="@drawable/card1"
-                android:elevation="20dp"
+                app:cardElevation="30dp"
+                app:cardCornerRadius="10dp"
                 android:outlineAmbientShadowColor="#14000000"
                 android:outlineSpotShadowColor="#80000000"
                 app:layout_constraintEnd_toStartOf="@+id/card5"
@@ -211,7 +213,7 @@
                 android:layout_width="43.4dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="18.27dp"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:src="@drawable/icon4"
                 app:layout_constraintBottom_toTopOf="@id/icon4"
                 app:layout_constraintEnd_toEndOf="@id/card4"
@@ -223,9 +225,10 @@
                 android:id="@+id/icon4Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:gravity="center_vertical"
                 android:lineSpacingExtra="1sp"
+                android:textFontWeight="400"
                 android:text="@string/friends"
                 android:textAppearance="@style/friends"
                 app:layout_constraintBottom_toBottomOf="@id/card4"
@@ -234,14 +237,14 @@
                 app:layout_constraintTop_toBottomOf="@id/icon4" />
 
             <!-- Card5 -->
-            <View
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card5"
                 android:layout_width="114dp"
                 android:layout_height="98dp"
                 android:layout_marginStart="11dp"
                 android:layout_marginTop="23dp"
-                android:background="@drawable/card1"
-                android:elevation="20dp"
+                app:cardElevation="30dp"
+                app:cardCornerRadius="10dp"
                 android:outlineAmbientShadowColor="#14000000"
                 android:outlineSpotShadowColor="#80000000"
                 app:layout_constraintEnd_toStartOf="@+id/card6"
@@ -253,7 +256,7 @@
                 android:layout_width="42.25dp"
                 android:layout_height="34.26dp"
                 android:layout_marginTop="21.70dp"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:src="@drawable/icon5"
                 app:layout_constraintBottom_toTopOf="@id/icon5"
                 app:layout_constraintEnd_toEndOf="@id/card5"
@@ -265,9 +268,10 @@
                 android:id="@+id/icon5Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:gravity="center_vertical"
                 android:lineSpacingExtra="1sp"
+                android:textFontWeight="400"
                 android:text="@string/favourites"
                 android:textAppearance="@style/favourites"
                 app:layout_constraintBottom_toBottomOf="@id/card5"
@@ -276,15 +280,15 @@
                 app:layout_constraintTop_toBottomOf="@id/icon5" />
 
             <!-- Card6 -->
-            <View
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card6"
                 android:layout_width="114dp"
                 android:layout_height="98dp"
                 android:layout_marginStart="11dp"
                 android:layout_marginTop="23dp"
                 android:layout_marginEnd="23dp"
-                android:background="@drawable/card1"
-                android:elevation="20dp"
+                app:cardElevation="30dp"
+                app:cardCornerRadius="10dp"
                 android:outlineAmbientShadowColor="#14000000"
                 android:outlineSpotShadowColor="#80000000"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -296,7 +300,7 @@
                 android:layout_width="52.53dp"
                 android:layout_height="38.83dp"
                 android:layout_marginTop="17.13dp"
-                android:elevation="22dp"
+                android:elevation="32dp"
                 android:src="@drawable/icon6"
                 app:layout_constraintBottom_toTopOf="@id/icon6"
                 app:layout_constraintEnd_toEndOf="@id/card6"
@@ -308,7 +312,8 @@
                 android:id="@+id/icon6Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="22dp"
+                android:elevation="32dp"
+                android:textFontWeight="400"
                 android:gravity="center_vertical"
                 android:lineSpacingExtra="1sp"
                 android:text="@string/uploads"
@@ -395,7 +400,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="55dp" />
+                    android:layout_marginTop="55dp"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/notification_view" />
 
             </RelativeLayout>
 

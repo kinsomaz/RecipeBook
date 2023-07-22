@@ -49,6 +49,11 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ChatOpenActivity"
+            android:exported="false">
+
+        </activity>
+
 
 
     </application>

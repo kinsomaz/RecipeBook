@@ -23,7 +23,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="5dp"
         android:elevation="10dp"
-        android:src="@drawable/chat_image1"
+        android:src="@drawable/image_avatar"
         app:layout_constraintStart_toStartOf="@+id/friendInnerView"
         app:layout_constraintTop_toTopOf="@+id/friendInnerView"
         app:layout_constraintBottom_toBottomOf="@id/friendInnerView"

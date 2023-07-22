@@ -7,42 +7,67 @@
     android:layout_height="match_parent"
     tools:context=".Friends">
 
-    <!-- back -->
-    <View
-        android:id="@+id/back_friendsIcon"
-        android:layout_width="45.68dp"
-        android:layout_height="45.68dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="74.23dp"
-        android:background="@drawable/back1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <!-- Chats -->
-    <TextView
-        android:id="@+id/friendsPage"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17.13dp"
-        android:text="@string/friendsPage"
-        android:textAppearance="@style/friendsPage"
-        android:lineSpacingExtra="13sp"
-        android:gravity="center_vertical"
-        app:layout_constraintStart_toEndOf="@+id/back_friendsIcon"
-        app:layout_constraintTop_toTopOf="@+id/back_friendsIcon"
-        app:layout_constraintBottom_toBottomOf="@+id/back_friendsIcon" />
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- logo -->
-    <View
-        android:id="@+id/logo_friends"
-        android:layout_width="38.83dp"
-        android:layout_height="42.25dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/logo"
-        android:elevation="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/back_friendsIcon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/back_friendsIcon" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="25dp">
+
+            <!-- back -->
+            <ImageView
+                android:id="@+id/back_friendsIcon"
+                android:layout_width="45.68dp"
+                android:layout_height="45.68dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/back1"
+                app:tint="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <!-- Chats -->
+            <TextView
+                android:id="@+id/friendsPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="17.13dp"
+                android:gravity="center"
+                android:textStyle="bold|normal"
+                android:lineSpacingExtra="13sp"
+                android:text="@string/friendsPage"
+                android:textAppearance="@style/chatsPage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/back_friendsIcon"/>
+
+            <!-- logo -->
+            <ImageView
+                android:id="@+id/logo_chat"
+                android:layout_width="38.83dp"
+                android:layout_height="42.25dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/logo"
+                android:elevation="20dp"
+                android:outlineAmbientShadowColor="#14000000"
+                android:outlineSpotShadowColor="#80000000"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <!-- Search -->
     <View
@@ -56,7 +81,7 @@
         android:outlineSpotShadowColor="#14000000"
         app:layout_constraintEnd_toEndOf="@+id/friendsFirstLayout"
         app:layout_constraintStart_toStartOf="@+id/friendsFirstLayout"
-        app:layout_constraintTop_toBottomOf="@+id/back_friendsIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <!-- Placeholder -->
     <TextView
@@ -102,6 +127,7 @@
         android:id="@+id/friendsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        tools:listitem="@layout/friend_view"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="@+id/friendsFirstLayout"
         app:layout_constraintTop_toBottomOf="@+id/friendsSubTitle" />

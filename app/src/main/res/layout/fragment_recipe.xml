@@ -13,55 +13,71 @@
         android:background="@drawable/bg"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Back -->
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="45.5dp"
-            android:layout_height="45.5dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="53.5dp"
-            android:src="@drawable/back"
-            android:contentDescription="@string/back"
-            app:layout_constraintTop_toTopOf="@+id/recipeFirstLayout"
-            app:layout_constraintStart_toStartOf="@+id/recipeFirstLayout"/>
-
-        <ImageView
-            android:id="@+id/swipe_"
-            android:layout_width="190dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="60.5dp"
-            android:layout_marginEnd="20dp"
-            android:contentDescription="swipe"
-            android:src="@drawable/btn"
-            app:layout_constraintEnd_toEndOf="@+id/recipeFirstLayout"
-            app:layout_constraintTop_toTopOf="@+id/recipeFirstLayout" />
-
-        <!-- Text -->
-        <TextView
-            android:id="@+id/swipeText"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="4sp"
-            android:text="@string/swipeText"
-            android:textAppearance="@style/swipeText"
-            app:layout_constraintStart_toStartOf="@+id/swipe_"
-            app:layout_constraintTop_toTopOf="@+id/swipe_"
-            app:layout_constraintBottom_toBottomOf="@+id/swipe_"
-            app:layout_constraintEnd_toStartOf="@+id/arrow"/>
+            android:layout_marginTop="45dp"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Arrow -->
-        <ImageView
-            android:id="@+id/arrow"
-            android:layout_width="9dp"
-            android:layout_height="11dp"
-            android:contentDescription="arrow"
-            android:src="@drawable/arrow"
-            app:layout_constraintStart_toEndOf="@+id/swipeText"
-            app:layout_constraintEnd_toEndOf="@+id/swipe_"
-            app:layout_constraintTop_toTopOf="@+id/swipeText"
-            app:layout_constraintBottom_toBottomOf="@+id/swipeText"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <!-- back -->
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="45.5dp"
+                    android:layout_height="45.5dp"
+                    android:contentDescription="@string/back"
+                    android:src="@drawable/back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/swipe"
+                    android:layout_width="190dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="swipe"
+                    android:src="@drawable/btn"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Text -->
+                <TextView
+                    android:id="@+id/swipeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="4sp"
+                    android:text="@string/swipeText"
+                    android:textAppearance="@style/swipeText"
+                    app:layout_constraintBottom_toBottomOf="@+id/swipe"
+                    app:layout_constraintEnd_toStartOf="@+id/arrow"
+                    app:layout_constraintStart_toStartOf="@+id/swipe"
+                    app:layout_constraintTop_toTopOf="@+id/swipe" />
+
+                <!-- Arrow -->
+                <ImageView
+                    android:id="@+id/arrow"
+                    android:layout_width="9dp"
+                    android:layout_height="11dp"
+                    android:contentDescription="arrow"
+                    android:src="@drawable/arrow"
+                    app:layout_constraintBottom_toBottomOf="@+id/swipeText"
+                    app:layout_constraintEnd_toEndOf="@+id/swipe"
+                    app:layout_constraintStart_toEndOf="@+id/swipeText"
+                    app:layout_constraintTop_toTopOf="@+id/swipeText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
 
         <!-- Search by Recipe -->
         <TextView
@@ -75,7 +91,7 @@
             android:text="@string/search_by_r"
             android:textAppearance="@style/search_by_r"
             app:layout_constraintStart_toStartOf="@+id/recipeFirstLayout"
-            app:layout_constraintTop_toBottomOf="@+id/back" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <!-- Search -->
         <View
@@ -121,9 +137,9 @@
         android:layout_height="0dp"
         android:layout_alignParentStart="true"
         android:layout_marginTop="-24dp"
-        android:paddingTop="15dp"
         android:background="@drawable/card"
         android:orientation="vertical"
+        android:paddingTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recipeFirstLayout">
 
@@ -131,17 +147,18 @@
             android:id="@+id/firstRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            tools:listitem="@layout/item_view" />
 
         <!-- Explore -->
         <TextView
             android:id="@+id/explore"
             android:layout_width="160dp"
             android:layout_height="20dp"
-            android:text="@string/explore"
-            android:textAppearance="@style/explore"
             android:layout_gravity="center_horizontal"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="@string/explore"
+            android:textAppearance="@style/explore" />
 
         <!-- Underline -->
         <ImageView
@@ -149,8 +166,8 @@
             android:layout_width="160dp"
             android:layout_height="2.23dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/underline"
-            android:alpha="0.5" />
+            android:alpha="0.5"
+            android:src="@drawable/underline" />
 
     </LinearLayout>
 

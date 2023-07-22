@@ -13,18 +13,35 @@
         android:background="@drawable/profile_rectangle"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Back -->
-        <ImageView
-            android:id="@+id/unfollow_back"
-            android:layout_width="45.5dp"
-            android:layout_height="45.5dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="53.5dp"
-            android:src="@drawable/back"
-            android:contentDescription="@string/back"
-            app:layout_constraintTop_toTopOf="@+id/unfollowFirstLayout"
-            app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"/>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_marginTop="45dp"
+            android:layout_height="wrap_content"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginEnd="20dp">
+
+                <!-- Back -->
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="45.5dp"
+                    android:layout_height="45.5dp"
+                    android:layout_marginStart="5dp"
+                    android:contentDescription="@string/back"
+                    android:src="@drawable/back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
 
 
         <ImageView
