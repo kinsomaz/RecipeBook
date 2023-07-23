@@ -34,8 +34,8 @@ class MessageAdapter(var context: Context, messages: ArrayList<Message>?, sender
     }
 
     override fun getItemViewType(position: Int): Int {
-        val messages = messages[position]
-        return if (FirebaseAuth.getInstance().uid == messages.senderId){
+        val message = messages[position]
+        return if (FirebaseAuth.getInstance().uid == message.senderId){
             ITEM_SENT
         }
         else{
