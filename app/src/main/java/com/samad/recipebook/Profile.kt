@@ -18,7 +18,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
-import com.google.firebase.database.ktx.values
 import com.google.firebase.storage.FirebaseStorage
 import com.samad.recipebook.databinding.FragmentProfileBinding
 import java.util.Date
@@ -100,7 +99,7 @@ class Profile : Fragment() {
                             val name: String = binding.nameEdit.text.toString()
                             val user = User(uid, name, "No image")
                             database.reference
-                                .child("User")
+                                .child("user")
                                 .child(uid!!)
                                 .setValue(user)
                                 .addOnCompleteListener {
@@ -137,7 +136,7 @@ class Profile : Fragment() {
                                 val uid = firebaseAuth.currentUser!!.uid
                                 val user = User(uid, name, imageUrl.toString())
                                 database.reference
-                                    .child("User")
+                                    .child("user")
                                     .child(uid)
                                     .setValue(user)
                                     .addOnCompleteListener {

@@ -40,10 +40,12 @@ class Home : Fragment() {
 
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val imageView = binding.avatar
+                        if(snapshot.exists()){
                         Glide.with(this@Home)
                             .load(snapshot.value)
                             .placeholder(R.drawable.image_avatar)
                             .into(imageView)
+                        }
                     }
 
                     override fun onCancelled(error: DatabaseError) {}
@@ -63,6 +65,22 @@ class Home : Fragment() {
 
 
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val currentId = FirebaseAuth.getInstance().uid
+        database!!.reference.child("presence")
+            .child(currentId!!)
+            .setValue("Online")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val currentId = FirebaseAuth.getInstance().uid
+        database!!.reference.child("presence")
+            .child(currentId!!)
+            .setValue("Offline")
     }
 
     private fun setUpRecyclerView(){

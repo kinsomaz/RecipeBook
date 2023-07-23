@@ -76,7 +76,7 @@ class ChatOpenActivity : AppCompatActivity() {
 
         senderUid = FirebaseAuth.getInstance().uid
 
-        database!!.reference.child("Presence").child(receiverUid!!)
+        database!!.reference.child("presence").child(receiverUid!!)
             .addValueEventListener(object : ValueEventListener {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -140,7 +140,7 @@ class ChatOpenActivity : AppCompatActivity() {
             database!!.reference.child("chats").child(receiverRoom!!)
                 .updateChildren(lastMsgObj)
             database!!.reference.child("chats").child(senderRoom!!)
-                .child("messages")
+                .child("message")
                 .child(randomKey!!)
                 .setValue(message).addOnSuccessListener {
                     database!!.reference.child("chats")
@@ -162,7 +162,7 @@ class ChatOpenActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun afterTextChanged(p0: Editable?) {
-                database!!.reference.child("Presence")
+                database!!.reference.child("presence")
                     .child(senderUid!!)
                     .setValue("typing...")
                 handler.removeCallbacksAndMessages(null)
@@ -171,7 +171,7 @@ class ChatOpenActivity : AppCompatActivity() {
             }
 
             var userStoppedTying = Runnable {
-                database!!.reference.child("Presence")
+                database!!.reference.child("presence")
                     .child(senderUid!!)
                     .setValue("Online")
             }
@@ -182,26 +182,26 @@ class ChatOpenActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         val currentId = FirebaseAuth.getInstance().uid
-        database!!.reference.child("Presence")
+        database!!.reference.child("presence")
             .child(currentId!!)
-            .setValue("online")
+            .setValue("Online")
     }
 
     override fun onPause() {
         super.onPause()
         val currentId = FirebaseAuth.getInstance().uid
-        database!!.reference.child("Presence")
+        database!!.reference.child("presence")
             .child(currentId!!)
-            .setValue("offline")
+            .setValue("Offline")
     }
 
     private fun handleTask(result: Uri?) {
         if (result != null){
             val calendar = Calendar.getInstance()
-            var reference = storage!!.reference.child("chats")
+            val reference = storage!!.reference.child("chats")
                 .child(calendar.timeInMillis.toString() + "")
             dialog!!.show()
-            reference.putFile(result!!)
+            reference.putFile(result)
                 .addOnCompleteListener { task ->
                     dialog!!.dismiss()
                     if(task.isSuccessful){
@@ -211,25 +211,26 @@ class ChatOpenActivity : AppCompatActivity() {
                             val date = Date()
                             val message = Message(messageTxt, senderUid, date.time)
                             message.messsage = "photo"
-                            message. imageUrl = filepath
-                            binding!!.messageBox.setText("")
+                            message.imageUrl = filepath
+                            binding.messageBox.setText("")
                             val randomKey = database!!.reference.push().key
                             val lastMsgObj = HashMap<String,Any>()
                             lastMsgObj["lastMsg"] = message.messsage!!
                             lastMsgObj["lastMsgTime"] = date.time
                             database!!.reference.child("chats")
+                                .child(senderRoom!!)
                                 .updateChildren(lastMsgObj)
                             database!!.reference.child("chats")
                                 .child(receiverRoom!!)
                                 .updateChildren(lastMsgObj)
                             database!!.reference.child("chats")
                                 .child(senderRoom!!)
-                                .child("messages")
+                                .child("message")
                                 .child(randomKey!!)
                                 .setValue(message).addOnSuccessListener {
                                     database!!.reference.child("chats")
                                         .child(receiverRoom!!)
-                                        .child("messages")
+                                        .child("message")
                                         .child(randomKey)
                                         .setValue(message)
                                         .addOnSuccessListener {}
