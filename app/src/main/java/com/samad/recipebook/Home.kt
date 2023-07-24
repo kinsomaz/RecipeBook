@@ -62,6 +62,9 @@ class Home : Fragment() {
         binding.card2.setOnClickListener {
             view.findNavController().navigate(R.id.action_home_to_chats)
         }
+        binding.card4.setOnClickListener {
+            view.findNavController().navigate(R.id.action_home_to_friends)
+        }
 
 
         return view

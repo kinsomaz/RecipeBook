@@ -203,8 +203,26 @@ class Profile : Fragment() {
             }
         })
 
+        database.reference.child("userFriend")
+            .child(uid!!)
+            .addValueEventListener(object : ValueEventListener{
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if(snapshot.exists()) {
+                       val friends = snapshot.childrenCount
+                        binding.friendsCount.text = "$friends"
+
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
 
         return view
+
 
     }
 

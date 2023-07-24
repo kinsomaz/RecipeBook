@@ -16,7 +16,7 @@ import com.samad.recipebook.databinding.ChatViewBinding
 class ChatAdapter (val context: Context, private val users:ArrayList<User>): RecyclerView.Adapter<ChatAdapter.MyViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        var view = LayoutInflater.from(context).inflate(R.layout.chat_view,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.chat_view,parent,false)
         return MyViewHolder(view)
     }
 

@@ -52,20 +52,12 @@ class Chats : Fragment() {
         val layoutManager = GridLayoutManager(this.context,1)
         binding.chatRecyclerView.layoutManager = layoutManager
 
-        database.reference.child("user")
-            .child(firebaseAuth.uid!!)
-            .addValueEventListener(object  : ValueEventListener{
 
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    user = snapshot.getValue(User::class.java)!!
-                }
-
-                override fun onCancelled(error: DatabaseError) {}
-            })
 
         binding.chatRecyclerView.adapter = chatAdapter
 
-        database.reference.child("user")
+        database.reference.child("userFriend")
+            .child(firebaseAuth.uid!!)
             .addValueEventListener(object :ValueEventListener{
 
                 override fun onDataChange(snapshot: DataSnapshot) {

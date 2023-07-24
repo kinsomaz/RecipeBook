@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_home_to_chats"
             app:destination="@id/chats" />
+        <action
+            android:id="@+id/action_home_to_friends"
+            app:destination="@id/friends" />
     </fragment>
     <fragment
         android:id="@+id/signUp"
@@ -52,6 +55,15 @@
         android:label="fragment_chats" >
         <action
             android:id="@+id/action_chats_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/friends"
+        android:name="com.samad.recipebook.Friends"
+        android:label="fragment_friends"
+        tools:layout="@layout/fragment_friends" >
+        <action
+            android:id="@+id/action_friends_to_home"
             app:destination="@id/home" />
     </fragment>
 </navigation>

@@ -19,11 +19,12 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.samad.recipebook.databinding.FragmentLoginBinding
+
 class Login : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var googleSignInClient : GoogleSignInClient
+    private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var myLifeCycleObserver: MyLifeCycleObserver
     private lateinit var startActivityLauncher: ActivityResultLauncher<Intent>
     private lateinit var view: View
@@ -32,18 +33,23 @@ class Login : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        startActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-        { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-                handleResult(task)
+        startActivityLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                    handleResult(task)
 
+                }
             }
-        }
     }
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         super.onCreate(savedInstanceState)
         binding = FragmentLoginBinding.inflate(layoutInflater)
         view = binding.root
@@ -61,10 +67,10 @@ class Login : Fragment() {
         googleSignInClient = GoogleSignIn.getClient(binding.relativeLayout.context, gsa)
 
         binding.createButton.setOnClickListener {
-         it.findNavController().navigate(R.id.action_login_to_signUp)
+            it.findNavController().navigate(R.id.action_login_to_signUp)
         }
 
-        binding.login.setOnClickListener {view : View ->
+        binding.login.setOnClickListener { view: View ->
             val email = binding.emailInput.text.toString()
             val pass = binding.passwordInput.text.toString()
 
@@ -73,14 +79,16 @@ class Login : Fragment() {
                     if (it.isSuccessful) {
                         view.findNavController().navigate(R.id.action_login_to_home)
 
-                    }else {
-                        Toast.makeText(this.context, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this.context, it.exception.toString(), Toast.LENGTH_SHORT)
+                            .show()
 
                     }
                 }
 
             } else {
-                Toast.makeText(this.context, "Empty Fields Are not Allowed!! ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, "Empty Fields Are not Allowed!! ", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
@@ -92,7 +100,7 @@ class Login : Fragment() {
         return view
     }
 
-    public override fun onStart() {
+    override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = firebaseAuth.currentUser
@@ -103,14 +111,13 @@ class Login : Fragment() {
     }
 
 
-
     private fun handleResult(task: Task<GoogleSignInAccount>) {
-        if (task.isSuccessful){
-            val account : GoogleSignInAccount? = task.result
-            if (account != null){
+        if (task.isSuccessful) {
+            val account: GoogleSignInAccount? = task.result
+            if (account != null) {
                 updateUI(account)
             }
-        }else {
+        } else {
             Toast.makeText(this.context, task.exception.toString(), Toast.LENGTH_SHORT).show()
         }
     }
@@ -118,10 +125,10 @@ class Login : Fragment() {
     private fun updateUI(account: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
-            if (it.isSuccessful){
+            if (it.isSuccessful) {
                 view.findNavController().navigate(R.id.action_login_to_home)
 
-            }else {
+            } else {
                 Toast.makeText(this.context, it.exception.toString(), Toast.LENGTH_SHORT).show()
             }
         }

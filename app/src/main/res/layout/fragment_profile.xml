@@ -39,32 +39,19 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <Button
                     android:id="@+id/edit"
-                    android:layout_width="66dp"
-                    android:layout_height="31dp"
-                    android:background="@drawable/profile_small_rec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:translationZ="46dp"
+                    android:text="@string/editText"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:backgroundTint="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
-                    <!-- Text -->
-                    <TextView
-                        android:id="@+id/editText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:lineSpacingExtra="2sp"
-                        android:text="@string/editText"
-                        android:textAppearance="@style/editText"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -137,6 +124,7 @@
             android:gravity="center"
             android:text="Save"
             android:textSize="18dp"
+            android:backgroundTint="@color/green"
             android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/networks_count"
