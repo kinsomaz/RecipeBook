@@ -16,16 +16,16 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_marginTop="45dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
 
                 <!-- Back -->
                 <ImageView
@@ -35,22 +35,22 @@
                     android:layout_marginStart="5dp"
                     android:contentDescription="@string/back"
                     android:src="@drawable/back"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
                     android:id="@+id/edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:translationZ="46dp"
+                    android:backgroundTint="@color/white"
                     android:text="@string/editText"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:backgroundTint="@color/white"
+                    android:translationZ="46dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -58,15 +58,14 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
             android:layout_width="103dp"
             android:layout_height="103dp"
             android:layout_marginTop="90.22dp"
+            android:src="@drawable/image_avatar"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp"
-            android:src="@drawable/image_avatar"
             app:layout_constraintBottom_toTopOf="@+id/profile_name"
             app:layout_constraintEnd_toEndOf="@+id/profileFirstLayout"
             app:layout_constraintStart_toStartOf="@+id/profileFirstLayout"
@@ -97,8 +96,8 @@
             android:background="@drawable/rectangle"
             android:textColorHint="@color/black"
             android:visibility="gone"
-            app:boxStrokeColor="@color/black"
-            app:hintTextColor="@color/black"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green"
             app:layout_constraintBottom_toTopOf="@+id/saveButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -121,10 +120,10 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
+            android:backgroundTint="@color/green"
             android:gravity="center"
             android:text="Save"
             android:textSize="18dp"
-            android:backgroundTint="@color/green"
             android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/networks_count"
@@ -221,10 +220,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profileSecondLayout"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="0dp"
         android:layout_marginTop="-88dp"
         android:background="@drawable/card"
+        android:paddingHorizontal="30dp"
         android:translationZ="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profileFirstLayout">
 
         <!-- About -->
@@ -232,7 +233,6 @@
             android:id="@+id/about"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="25dp"
             android:gravity="center_vertical"
             android:lineSpacingExtra="17sp"
@@ -246,11 +246,9 @@
             android:id="@+id/about_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
             android:lineSpacingExtra="5sp"
-            android:paddingStart="30dp"
-            android:paddingEnd="38dp"
             android:text="@string/about_text"
             android:textAppearance="@style/about_text"
             app:layout_constraintEnd_toEndOf="@id/profileSecondLayout"
@@ -261,7 +259,6 @@
             android:id="@+id/likes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="17dp"
             android:gravity="center_vertical"
             android:lineSpacingExtra="17sp"
@@ -269,6 +266,16 @@
             android:textAppearance="@style/likes"
             app:layout_constraintStart_toStartOf="@+id/profileSecondLayout"
             app:layout_constraintTop_toBottomOf="@+id/about_text" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/likeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/likes"
+            tools:listitem="@layout/likes_view" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

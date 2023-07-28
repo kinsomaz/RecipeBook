@@ -10,16 +10,16 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_marginTop="32dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginEnd="25dp">
+            android:layout_marginEnd="25dp"
+            android:orientation="horizontal">
 
             <!-- back -->
             <ImageView
@@ -28,10 +28,10 @@
                 android:layout_height="45.68dp"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/back1"
-                app:tint="@color/black"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black" />
 
             <!-- Chats -->
             <TextView
@@ -41,13 +41,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="17.13dp"
                 android:gravity="center"
-                android:textStyle="bold|normal"
                 android:lineSpacingExtra="13sp"
                 android:text="@string/friendsPage"
                 android:textAppearance="@style/chatsPage"
-                app:layout_constraintTop_toTopOf="parent"
+                android:textStyle="bold|normal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/back_friendsIcon"/>
+                app:layout_constraintStart_toEndOf="@id/back_friendsIcon"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- logo -->
             <ImageView
@@ -59,55 +59,40 @@
                 android:elevation="20dp"
                 android:outlineAmbientShadowColor="#14000000"
                 android:outlineSpotShadowColor="#80000000"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
 
-    <!-- Search -->
-    <View
-        android:id="@+id/searchViewFriends"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/searchViewContainer"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="29dp"
-        android:background="@drawable/rectangle"
-        android:elevation="15dp"
         android:outlineAmbientShadowColor="#80000000"
         android:outlineSpotShadowColor="#80000000"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
         app:layout_constraintEnd_toEndOf="@+id/friendsFirstLayout"
         app:layout_constraintStart_toStartOf="@+id/friendsFirstLayout"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-    <!-- Placeholder -->
-    <TextView
-        android:id="@+id/searchFriends"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:elevation="20dp"
-        android:lineSpacingExtra="2sp"
-        android:text="@string/searchFriends"
-        android:textAppearance="@style/searchFriends"
-        app:layout_constraintBottom_toBottomOf="@+id/searchViewFriends"
-        app:layout_constraintStart_toStartOf="@+id/searchViewFriends"
-        app:layout_constraintTop_toTopOf="@+id/searchViewFriends" />
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchViewFriends"
+            style="@style/searchPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@android:color/transparent"
+            app:queryHint="@string/searchFriends" />
 
-    <!-- Search -->
-    <ImageView
-        android:id="@+id/searchIcon"
-        android:layout_width="17dp"
-        android:layout_height="17dp"
-        android:layout_marginEnd="14dp"
-        android:elevation="20dp"
-        android:src="@drawable/search_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/searchViewFriends"
-        app:layout_constraintEnd_toEndOf="@+id/searchViewFriends"
-        app:layout_constraintTop_toTopOf="@+id/searchViewFriends" />
+    </androidx.cardview.widget.CardView>
+
 
     <!-- Title -->
     <TextView
@@ -121,17 +106,16 @@
         android:text="@string/friendsSubTitle"
         android:textAppearance="@style/friendsSubTitle"
         app:layout_constraintStart_toStartOf="@+id/friendsFirstLayout"
-        app:layout_constraintTop_toBottomOf="@+id/searchViewFriends" />
+        app:layout_constraintTop_toBottomOf="@+id/searchViewContainer" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/friendsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:listitem="@layout/friend_view"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="@+id/friendsFirstLayout"
-        app:layout_constraintTop_toBottomOf="@+id/friendsSubTitle" />
-
+        app:layout_constraintTop_toBottomOf="@+id/friendsSubTitle"
+        tools:listitem="@layout/friend_view" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

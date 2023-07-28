@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_home_to_friends"
             app:destination="@id/friends" />
+        <action
+            android:id="@+id/action_home_to_recipePageContainer"
+            app:destination="@id/recipePageContainer" />
     </fragment>
     <fragment
         android:id="@+id/signUp"
@@ -56,6 +59,9 @@
         <action
             android:id="@+id/action_chats_to_home"
             app:destination="@id/home" />
+        <action
+            android:id="@+id/action_chats_to_chatOpenActivity2"
+            app:destination="@id/chatOpenActivity2" />
     </fragment>
     <fragment
         android:id="@+id/friends"
@@ -65,5 +71,26 @@
         <action
             android:id="@+id/action_friends_to_home"
             app:destination="@id/home" />
+        <action
+            android:id="@+id/action_friends_to_unfollow_friend"
+            app:destination="@id/unfollow_friend" />
     </fragment>
+    <fragment
+        android:id="@+id/recipePageContainer"
+        android:name="com.samad.recipebook.RecipePageContainer"
+        android:label="fragment_recipe_page_container"
+        tools:layout="@layout/fragment_recipe_page_container" >
+        <action
+            android:id="@+id/action_recipePageContainer_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <activity
+        android:id="@+id/unfollow_friend"
+        android:name="com.samad.recipebook.Unfollow_friend"
+        android:label="Unfollow_friend" />
+    <activity
+        android:id="@+id/chatOpenActivity2"
+        android:name="com.samad.recipebook.ChatOpenActivity"
+        android:label="activity_chat__open"
+        tools:layout="@layout/activity_chat__open" />
 </navigation>

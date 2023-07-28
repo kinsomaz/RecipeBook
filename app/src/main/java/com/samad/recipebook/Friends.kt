@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,6 +18,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
 import com.samad.recipebook.databinding.FragmentChatsBinding
 import com.samad.recipebook.databinding.FragmentFriendsBinding
+import java.util.Locale
 
 
 class Friends : Fragment() {
@@ -25,6 +28,7 @@ class Friends : Fragment() {
     private lateinit var database: FirebaseDatabase
     private lateinit var users: ArrayList<User>
     private lateinit var adapter: FriendAdapter
+    private lateinit var searchView: SearchView
     private lateinit var user: User
 
 
@@ -43,6 +47,7 @@ class Friends : Fragment() {
         }
 
         database = FirebaseDatabase.getInstance()
+        searchView = view.findViewById(R.id.searchViewFriends)
 
         users = ArrayList()
 
@@ -80,8 +85,39 @@ class Friends : Fragment() {
                 override fun onCancelled(error: DatabaseError) {}
             })
 
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterList(newText)
+
+                return true
+            }
+        })
+
         return view
 
+    }
+
+    private fun filterList(query: String?) {
+        if (query != null){
+            val filteredList = ArrayList<User>()
+            for (i in users){
+                if (i.name!!.lowercase(Locale.ROOT).contains(query)){
+                    filteredList.add(i)
+                }
+            }
+            if (filteredList.isEmpty()) {
+                Toast.makeText(this.context, "No Data found", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                adapter.setFilteredList(filteredList)
+            }
+        }
     }
 
 }

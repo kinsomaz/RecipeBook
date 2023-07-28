@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="9.14dp"
         android:layout_marginStart="17.13dp"
-        android:text="@string/chat_message"
+        android:text="..."
         android:textAppearance="@style/chat_message"
         android:lineSpacingExtra="1sp"
         android:gravity="center_vertical"

@@ -22,6 +22,7 @@ class Home : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var view: View
+    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
 
     override fun onCreateView(
@@ -34,6 +35,8 @@ class Home : Fragment() {
         view = binding.root
 
         database = FirebaseDatabase.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
+
         FirebaseAuth.getInstance().uid?.let {
             database.reference.child("user").child(it)
                 .child("profileImage").addValueEventListener(object : ValueEventListener {
@@ -52,12 +55,26 @@ class Home : Fragment() {
                 })
         }
 
+        database.reference.child("user").child(firebaseAuth.uid!!).child("name").addValueEventListener(object : ValueEventListener{
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    binding.userName?.text  = snapshot.value as CharSequence?
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
+
         setUpRecyclerView()
 
 
 
         binding.avatar.setOnClickListener {
             view.findNavController().navigate(R.id.action_home_to_profile)
+        }
+        binding.card1.setOnClickListener {
+            view.findNavController().navigate(R.id.action_home_to_recipePageContainer)
         }
         binding.card2.setOnClickListener {
             view.findNavController().navigate(R.id.action_home_to_chats)

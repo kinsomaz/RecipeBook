@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="32dp"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -60,19 +60,19 @@
                     android:textAppearance="@style/swipeText"
                     app:layout_constraintBottom_toBottomOf="@+id/swipe_II"
                     app:layout_constraintEnd_toStartOf="@+id/arrow_II"
-                    app:layout_constraintStart_toStartOf="@+id/swipe_II"
+                    app:layout_constraintStart_toEndOf="@+id/swipe_II"
                     app:layout_constraintTop_toTopOf="@+id/swipe_II" />
 
                 <!-- Arrow -->
                 <ImageView
                     android:id="@+id/arrow_II"
-                    android:layout_width="9dp"
-                    android:layout_height="11dp"
+                    android:layout_width="13dp"
+                    android:layout_height="14dp"
                     android:contentDescription="arrow"
-                    android:src="@drawable/arrow"
+                    android:src="@drawable/arrow_back"
                     app:layout_constraintBottom_toBottomOf="@+id/swipeText_II"
-                    app:layout_constraintEnd_toEndOf="@+id/swipe_II"
-                    app:layout_constraintStart_toEndOf="@+id/swipeText_II"
+                    app:layout_constraintEnd_toStartOf="@+id/swipe_II"
+                    app:layout_constraintStart_toStartOf="@+id/swipeText_II"
                     app:layout_constraintTop_toTopOf="@+id/swipeText_II" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -94,44 +94,36 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <!-- Search -->
-        <View
-            android:id="@+id/searchView_II"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchContainer"
             android:layout_width="match_parent"
             android:layout_height="51dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="11dp"
-            android:background="@drawable/rectangle"
+            android:outlineAmbientShadowColor="#80000000"
+            android:outlineSpotShadowColor="#80000000"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp"
             app:layout_constraintStart_toStartOf="@+id/recipeFirstLayout_II"
-            app:layout_constraintTop_toBottomOf="@+id/search_by_r_II" />
+            app:layout_constraintTop_toBottomOf="@+id/search_by_r_II">
 
-        <!-- Placeholder -->
-        <TextView
-            android:id="@+id/searchPlaceholder_II"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
-            android:lineSpacingExtra="2sp"
-            android:text="@string/searchPlaceholder_II"
-            android:textAppearance="@style/searchPlaceholder"
-            app:layout_constraintBottom_toBottomOf="@+id/searchView_II"
-            app:layout_constraintStart_toStartOf="@+id/searchView_II"
-            app:layout_constraintTop_toTopOf="@+id/searchView_II" />
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView_II"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:iconifiedByDefault="false"
+                style="@style/searchPlaceholder"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="@string/searchPlaceholder_II" />
 
-        <!-- Search -->
-        <ImageView
-            android:id="@+id/searchIcon_II"
-            android:layout_width="17dp"
-            android:layout_height="17dp"
-            android:layout_marginEnd="14dp"
-            android:src="@drawable/search_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/searchView_II"
-            app:layout_constraintEnd_toEndOf="@+id/searchView_II"
-            app:layout_constraintTop_toTopOf="@+id/searchView_II" />
+        </androidx.cardview.widget.CardView>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Card -->
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/card_II"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -143,33 +135,69 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recipeFirstLayout_II">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/firstRecyclerView_II"
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="460dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recipeRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </ScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/secondRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="420dp"
             android:layout_gravity="center_horizontal"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/scrollView"
+            tools:layout_editor_absoluteX="15dp"
             tools:listitem="@layout/item_view" />
 
-        <!-- Explore -->
-        <TextView
-            android:id="@+id/explore_II"
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="@string/explore"
-            android:textAppearance="@style/explore" />
 
-        <!-- Underline -->
-        <ImageView
-            android:id="@+id/underline_II"
-            android:layout_width="160dp"
-            android:layout_height="2.23dp"
-            android:layout_gravity="center_horizontal"
-            android:alpha="0.5"
-            android:src="@drawable/underline" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/exploreContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="440dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <!-- Explore -->
+            <TextView
+                android:id="@+id/explore"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/explore"
+                android:textAppearance="@style/explore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Underline -->
+            <ImageView
+                android:id="@+id/underline"
+                android:layout_width="160dp"
+                android:layout_height="2.23dp"
+                android:alpha="0.5"
+                android:src="@drawable/underline"
+                app:layout_constraintEnd_toEndOf="@id/explore"
+                app:layout_constraintStart_toStartOf="@id/explore"
+                app:layout_constraintTop_toBottomOf="@id/explore" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

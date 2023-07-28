@@ -9,7 +9,7 @@ import com.samad.recipebook.databinding.ItemViewBinding
 
 private lateinit var binding: ItemViewBinding
 
-class RecipeAdapter(val context: Context,private val recipes: List<Recipe>): RecyclerView.Adapter<RecipeAdapter.MyViewHolder>(){
+class RecipePageAdapter(val context: Context, private val recipes: List<Recipe>): RecyclerView.Adapter<RecipePageAdapter.MyViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         binding = ItemViewBinding.inflate(LayoutInflater.from(context),parent,false)

@@ -1,6 +1,7 @@
 package com.samad.recipebook
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,14 +15,14 @@ import com.samad.recipebook.databinding.FriendViewBinding
 import com.squareup.picasso.Picasso
 
 
-
-class FriendAdapter(val context: Context, private val users: ArrayList<User>): RecyclerView.Adapter<FriendAdapter.MyViewHolder>() {
+class FriendAdapter(val context: Context, private var users: ArrayList<User>) :
+    RecyclerView.Adapter<FriendAdapter.MyViewHolder>() {
 
     private lateinit var database: FirebaseDatabase
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.friend_view,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.friend_view, parent, false)
         return MyViewHolder(view)
     }
 
@@ -38,13 +39,12 @@ class FriendAdapter(val context: Context, private val users: ArrayList<User>): R
 
         database.reference.child("userFriend")
             .child(user.uid!!)
-            .addValueEventListener(object : ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if(snapshot.exists()) {
+                    if (snapshot.exists()) {
                         val friends = snapshot.childrenCount
                         holder.binding.friendsNum.text = "$friends"
-
 
                     }
                 }
@@ -60,9 +60,9 @@ class FriendAdapter(val context: Context, private val users: ArrayList<User>): R
                 .child(user.uid!!)
                 .setValue(user)
                 .addOnCompleteListener {
-                holder.binding.addFriend.visibility = View.GONE
-                holder.binding.added.visibility = View.VISIBLE
-            }
+                    holder.binding.addFriend.visibility = View.GONE
+                    holder.binding.added.visibility = View.VISIBLE
+                }
 
         }
 
@@ -70,7 +70,7 @@ class FriendAdapter(val context: Context, private val users: ArrayList<User>): R
             .child(firebaseAuth.uid!!)
             .child(user.uid!!)
             .child("uid")
-            .addValueEventListener(object : ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val uid = snapshot.value
@@ -79,19 +79,37 @@ class FriendAdapter(val context: Context, private val users: ArrayList<User>): R
                         holder.binding.added.visibility = View.VISIBLE
                     }
                 }
+
                 override fun onCancelled(error: DatabaseError) {}
             })
 
+        holder.binding.friendImage.setOnClickListener {
+            val intent = Intent(context, Unfollow_friend::class.java)
+            intent.putExtra("name" , user.name)
+            intent.putExtra("profileUrl", user.profileImage)
+            intent.putExtra("uid" , user.uid)
+            context.startActivity(intent)
+        }
+
     }
 
-    inner class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    fun setFilteredList(filteredList: ArrayList<User>) {
+        this.users = filteredList
+        notifyDataSetChanged()
+    }
+
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding = FriendViewBinding.bind(itemView)
         fun setData(user: User?, pos: Int) {
             user?.let {
                 binding.friendName.text = user.name
-                Picasso.with(context).load(user.profileImage).into(binding.friendImage)
+                Picasso.with(context)
+                    .load(user.profileImage)
+                    .into(binding.friendImage)
             }
         }
 
     }
+
+
 }

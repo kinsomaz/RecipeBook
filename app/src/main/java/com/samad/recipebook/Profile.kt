@@ -11,7 +11,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.flexbox.AlignItems
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -30,6 +38,10 @@ class Profile : Fragment() {
     private lateinit var storage: FirebaseStorage
     private lateinit var startActivityLauncher: ActivityResultLauncher<String>
     private var selectedImage: Uri? = null
+    private lateinit var adapter: LikesAdapter
+    private lateinit var layoutManager: FlexboxLayoutManager
+    private lateinit var recyclerView: RecyclerView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,6 +128,7 @@ class Profile : Fragment() {
                             val imageView = binding.profileImage
                             Glide.with(this)
                                 .load(Uri.result)
+                                .placeholder(R.drawable.image_avatar)
                                 .into(imageView)
 
                         }
@@ -193,6 +206,7 @@ class Profile : Fragment() {
                     val imageView = binding.profileImage
                     Glide.with(this@Profile)
                         .load(snapshot.value)
+                        .placeholder(R.drawable.image_avatar)
                         .into(imageView)
                 }
 
@@ -220,6 +234,19 @@ class Profile : Fragment() {
                     TODO("Not yet implemented")
                 }
             })
+
+        recyclerView = view.findViewById(R.id.likeRecyclerView)
+
+
+        layoutManager = FlexboxLayoutManager(this.context)
+        layoutManager.flexWrap = FlexWrap.WRAP
+        layoutManager.flexDirection = FlexDirection.ROW
+        layoutManager.justifyContent = JustifyContent.FLEX_START
+        layoutManager.alignItems = AlignItems.FLEX_START
+
+        recyclerView.layoutManager = layoutManager
+        adapter = LikesAdapter(Likes.Supplier.likes)
+        recyclerView.adapter = adapter
 
         return view
 

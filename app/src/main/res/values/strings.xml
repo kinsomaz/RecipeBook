@@ -9,7 +9,7 @@
     <string name="login_with">Login with</string>
     <string name="or">or</string>
     <string name="create_an_account">Create an account</string>
-    <string name="welcome_dav">Welcome David</string>
+    <string name="welcome_dav">Welcome </string>
     <string name="swipeText">Swipe to search by ingredients</string>
     <string name="search_by_r">Search by Recipe</string>
     <string name="search_by_r_II">Search by Ingredients</string>
@@ -32,17 +32,18 @@
     <string name="notificationDate">Yesterday</string>
     <string name="chatsPage">Chats</string>
     <string name="nameChat">Adebayo Apercu</string>
-    <string name="chat_message">A selection of chicken dishes served together …</string>
+    <string name="chat_message">A selection of chicken </string>
     <string name="friendsPage">Friends</string>
     <string name="friendsSubTitle">My Friends</string>
     <string name="friendName">Adebayo Apercu</string>
-    <string name="friendsNum">100k Friends</string>
+    <string name="friendsNum">Friends</string>
+    <string name="add_friend">Add Friend</string>
     <string name="remove_friend">Remove Friend</string>
     <string name="editText">Edit</string>
-    <string name="profile_name">David Opeyemi</string>
-    <string name="friends_count">1,293</string>
-    <string name="networks_count">80</string>
-    <string name="uploads_count">124</string>
+    <string name="profile_name">Your Name! Click Edit</string>
+    <string name="friends_count">0</string>
+    <string name="networks_count">0</string>
+    <string name="uploads_count">0</string>
     <string name="friends_count_title">FRIENDS</string>
     <string name="networks_count_title">NETWORKS</string>
     <string name="uploads_count_title">UPLOADS</string>
@@ -57,9 +58,7 @@
     <string name="networks_explore">Explore more networks</string>
     <string name="favouritesPage">Favourites</string>
     <string name="first_recipe_title">Sausage &amp; Peppers Group </string>
-
-
-    
+    <string name="what_s_your_name">Enter your name?</string>
 
 
 

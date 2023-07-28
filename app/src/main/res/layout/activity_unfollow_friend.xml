@@ -16,16 +16,16 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_marginTop="45dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
 
                 <!-- Back -->
                 <ImageView
@@ -35,38 +35,38 @@
                     android:layout_marginStart="5dp"
                     android:contentDescription="@string/back"
                     android:src="@drawable/back"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
 
-        <ImageView
-            android:id="@+id/unfollow_image"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image"
             android:layout_width="103dp"
             android:layout_height="103dp"
             android:layout_marginTop="90.22dp"
-            android:src="@drawable/unfollow_avi"
-            app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
+            android:src="@drawable/image_avatar"
             app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
-            app:layout_constraintTop_toTopOf="@id/unfollowFirstLayout"/>
+            app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
+            app:layout_constraintTop_toTopOf="@id/unfollowFirstLayout" />
 
         <!-- Name -->
         <TextView
-            android:id="@+id/unfollow_name"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="13sp"
             android:text="@string/unfollow_name"
             android:textAppearance="@style/unfollow_name"
-            android:lineSpacingExtra="13sp"
-            android:gravity="center_vertical"
-            app:layout_constraintTop_toBottomOf="@+id/unfollow_image"
+            app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
             app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
-            app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/image" />
 
         <!-- Count -->
         <TextView
@@ -74,13 +74,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:gravity="top"
             android:text="@string/friends_count"
             android:textAppearance="@style/friends_count"
-            android:gravity="top"
-            app:layout_constraintTop_toBottomOf="@+id/unfollow_name"
-            app:layout_constraintStart_toStartOf="@id/unfollowFirstLayout"
             app:layout_constraintEnd_toStartOf="@id/networks_count"
-            />
+            app:layout_constraintStart_toStartOf="@id/unfollowFirstLayout"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <!-- Count -->
         <TextView
@@ -88,13 +87,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:gravity="top"
             android:text="@string/networks_count"
             android:textAppearance="@style/networks_count"
-            android:gravity="top"
-            app:layout_constraintTop_toBottomOf="@+id/unfollow_name"
             app:layout_constraintEnd_toStartOf="@id/uploads_count"
             app:layout_constraintStart_toEndOf="@id/friends_count"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <!-- Count -->
         <TextView
@@ -102,13 +100,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:gravity="top"
             android:text="@string/uploads_count"
             android:textAppearance="@style/uploads_count"
-            android:gravity="top"
-            app:layout_constraintTop_toBottomOf="@+id/unfollow_name"
-            app:layout_constraintStart_toEndOf="@id/networks_count"
             app:layout_constraintEnd_toEndOf="@id/unfollowFirstLayout"
-            />
+            app:layout_constraintStart_toEndOf="@id/networks_count"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <!-- Count -->
         <TextView
@@ -155,43 +152,45 @@
             app:layout_constraintStart_toStartOf="@id/uploads_count"
             app:layout_constraintTop_toBottomOf="@+id/uploads_count" />
 
-        <View
-            android:id="@+id/removeFriendView"
-            android:layout_width="121dp"
+        <Button
+            android:id="@+id/removeFriendButton"
+            android:layout_width="wrap_content"
             android:layout_height="39dp"
             android:layout_marginTop="24dp"
+            android:backgroundTint="#979797"
             android:elevation="10dp"
-            android:background="@drawable/search_field"
-            app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
-            app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
-            app:layout_constraintTop_toBottomOf="@+id/networks_count_title"
-            />
-
-        <!-- Search -->
-        <TextView
-            android:id="@+id/remove_friend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="10dp"
-            android:text="@string/add_friend"
             android:textAppearance="@style/remove_friend"
-            android:lineSpacingExtra="10sp"
-            android:gravity="center_vertical"
-            app:layout_constraintTop_toTopOf="@+id/removeFriendView"
-            app:layout_constraintBottom_toBottomOf="@+id/removeFriendView"
-            app:layout_constraintStart_toStartOf="@+id/removeFriendView"
-            app:layout_constraintEnd_toEndOf="@+id/removeFriendView"
-            />
+            android:text="@string/remove_friend"
+            app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
+            app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
+            app:layout_constraintTop_toBottomOf="@+id/networks_count_title" />
+
+        <Button
+            android:id="@+id/addFriendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#979797"
+            android:elevation="10dp"
+            android:visibility="gone"
+            android:textAppearance="@style/remove_friend"
+            android:text="@string/add_friend"
+            app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
+            app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
+            app:layout_constraintTop_toBottomOf="@+id/networks_count_title" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/unfollowSecondLayout"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="0dp"
         android:layout_marginTop="-34dp"
-        android:translationZ="46dp"
         android:background="@drawable/card"
+        android:paddingHorizontal="30dp"
+        android:translationZ="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/unfollowFirstLayout">
 
         <!-- About -->
@@ -200,11 +199,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:layout_marginStart="30dp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="17sp"
             android:text="@string/about"
             android:textAppearance="@style/about"
-            android:lineSpacingExtra="17sp"
-            android:gravity="center_vertical"
             app:layout_constraintStart_toStartOf="@+id/unfollowSecondLayout"
             app:layout_constraintTop_toTopOf="@+id/unfollowSecondLayout" />
 
@@ -213,32 +211,36 @@
             android:id="@+id/about_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="30dp"
-            android:paddingEnd="38dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:lineSpacingExtra="5sp"
             android:text="@string/about_text"
             android:textAppearance="@style/about_text"
-            android:lineSpacingExtra="5sp"
-            android:gravity="center_vertical"
-            app:layout_constraintTop_toBottomOf="@+id/unfollow_about"
+            app:layout_constraintEnd_toEndOf="@id/unfollowSecondLayout"
             app:layout_constraintStart_toStartOf="@id/unfollowSecondLayout"
-            app:layout_constraintEnd_toEndOf="@id/unfollowSecondLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/unfollow_about" />
 
         <TextView
             android:id="@+id/likes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
-            android:layout_marginStart="30dp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="17sp"
             android:text="@string/likes"
             android:textAppearance="@style/likes"
-            android:lineSpacingExtra="17sp"
-            android:gravity="center_vertical"
             app:layout_constraintStart_toStartOf="@+id/unfollowSecondLayout"
             app:layout_constraintTop_toBottomOf="@+id/about_text" />
 
-
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/likeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/likes"
+            tools:listitem="@layout/likes_view" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

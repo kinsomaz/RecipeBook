@@ -1,7 +1,6 @@
 package com.samad.recipebook
 
 import android.app.ProgressDialog
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -20,13 +19,13 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import com.samad.recipebook.databinding.FragmentChatOpenBinding
+import com.samad.recipebook.databinding.ActivityChatOpenBinding
 import java.util.Calendar
 import java.util.Date
 
 class ChatOpenActivity : AppCompatActivity() {
 
-    private lateinit var binding: FragmentChatOpenBinding
+    private lateinit var binding: ActivityChatOpenBinding
     private lateinit var startActivityLauncher: ActivityResultLauncher<String>
 
     var adapter: MessageAdapter? = null
@@ -42,7 +41,7 @@ class ChatOpenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = FragmentChatOpenBinding.inflate(layoutInflater)
+        binding = ActivityChatOpenBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
