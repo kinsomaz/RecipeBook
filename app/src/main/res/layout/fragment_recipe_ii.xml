@@ -112,7 +112,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:iconifiedByDefault="false"
-                style="@style/searchPlaceholder"
                 app:queryBackground="@android:color/transparent"
                 app:queryHint="@string/searchPlaceholder_II" />
 
