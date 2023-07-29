@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -103,6 +104,18 @@ class Home : Fragment() {
                 override fun onCancelled(error: DatabaseError) {}
             })
 
+        val swipeToDeleteCallback = object : SwipeToDeleteCallback(){
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                notifications.removeAt(position)
+                recyclerView.adapter?.notifyItemRemoved(position)
+            }
+
+        }
+
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
 
         binding.avatar.setOnClickListener {
             view.findNavController().navigate(R.id.action_home_to_profile)
