@@ -2,17 +2,17 @@ package com.samad.recipebook
 
 class Notification {
     var timestamp: String? = null
-    var pUid: String? = null
+    var sUid: String? = null
     var notification: String? = null
 
     constructor() {}
     constructor(
         timestamp: String,
-        pUid: String,
+        sUid: String,
         notification: String,
     ){
         this.timestamp = timestamp
-        this.pUid = pUid
+        this.sUid = sUid
         this.notification = notification
     }
 

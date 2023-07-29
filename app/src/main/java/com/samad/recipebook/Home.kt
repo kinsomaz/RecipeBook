@@ -108,7 +108,23 @@ class Home : Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
-                notifications.removeAt(position)
+
+                val notification = notifications[position]
+                val notificationTime = notification.timestamp
+                database.reference.child("userNotification").child(firebaseAuth.uid!!).addValueEventListener(object : ValueEventListener{
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        for (snapshot1 in snapshot.children) {
+                            val not = snapshot1.getValue(Notification::class.java)
+                            if(not?.timestamp == notificationTime){
+                                val key = snapshot1.key
+                                database.reference.child("userNotification").child(firebaseAuth.uid!!).child(key!!).removeValue()
+                            }
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {}
+                })
                 recyclerView.adapter?.notifyItemRemoved(position)
             }
 
