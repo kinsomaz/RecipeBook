@@ -16,10 +16,11 @@ class MessageAdapter(var context: Context, messages: ArrayList<Message>?, sender
     : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
 
     lateinit var messages: ArrayList<Message>
+
     val ITEM_SENT = 1
     val ITEM_RECEIVE = 2
     val senderRoom: String
-    var receiveRoom: String
+    val receiveRoom: String
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -179,4 +180,5 @@ class MessageAdapter(var context: Context, messages: ArrayList<Message>?, sender
         this.senderRoom = senderRoom
         this.receiveRoom = receiveRoom
     }
+
 }

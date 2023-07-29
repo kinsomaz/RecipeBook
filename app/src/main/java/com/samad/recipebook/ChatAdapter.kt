@@ -5,8 +5,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -33,7 +31,7 @@ class ChatAdapter (val context: Context, private val users:ArrayList<User>): Rec
         val user = users[position]
         database = FirebaseDatabase.getInstance()
         firebaseAuth = FirebaseAuth.getInstance()
-        var uid = firebaseAuth.uid
+        val uid = firebaseAuth.uid
 
         holder.binding.nameChat.text = user.name
         Glide.with(context)
@@ -73,4 +71,6 @@ class ChatAdapter (val context: Context, private val users:ArrayList<User>): Rec
         val binding : ChatViewBinding = ChatViewBinding.bind(itemView)
 
     }
+
+
 }

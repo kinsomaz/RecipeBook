@@ -70,7 +70,6 @@
         android:id="@+id/secondLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="-25dp"
         android:background="@drawable/card"
         android:elevation="46dp"
         android:outlineAmbientShadowColor="#CC000000"
@@ -79,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/firstLayout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/innerSecondLayout"
+            android:id="@+id/innerFirstLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent">
@@ -461,74 +460,85 @@
             android:layout_marginTop="30dp"
             android:alpha="0.3"
             android:background="@drawable/line"
-            app:layout_constraintTop_toBottomOf="@+id/innerSecondLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/innerFirstLayout" />
 
-
-        <ScrollView
-            android:id="@+id/scrollView"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/innerSecondLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/line">
 
-            <RelativeLayout
-                android:id="@+id/scrollViewLayout"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/innerLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <!-- Notifications -->
                 <TextView
                     android:id="@+id/notification"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="23.4dp"
+                    android:layout_marginTop="18.4dp"
                     android:gravity="center_vertical"
                     android:lineSpacingExtra="-3sp"
                     android:text="@string/notification"
                     android:textAppearance="@style/notification"
-                    android:textStyle="bold|normal" />
+                    android:textStyle="bold|normal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/innerLayout" />
 
                 <!-- Clear -->
                 <TextView
                     android:id="@+id/clear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="23.4dp"
+                    android:layout_marginTop="18.4dp"
                     android:layout_marginEnd="20dp"
                     android:gravity="center_horizontal|top"
                     android:text="@string/clear"
                     android:textAppearance="@style/clear"
-                    android:textStyle="bold|normal" />
+                    android:textStyle="bold|normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/innerLayout" />
 
                 <!-- Rectangle 3 -->
                 <View
                     android:id="@+id/rectangle_3"
                     android:layout_width="0dp"
                     android:layout_height="2dp"
-                    android:layout_alignStart="@id/clear"
-                    android:layout_alignEnd="@id/clear"
-                    android:layout_alignBottom="@id/clear"
                     android:layout_marginBottom="-5dp"
                     android:alpha="0.5"
-                    android:background="@drawable/line" />
+                    android:background="@drawable/line"
+                    app:layout_constraintBottom_toBottomOf="@id/clear"
+                    app:layout_constraintEnd_toEndOf="@id/clear"
+                    app:layout_constraintStart_toStartOf="@id/clear" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/innerLayout">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/notificationRecyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="55dp"
-                    tools:itemCount="5"
-                    tools:listitem="@layout/notification_view" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/notification_view"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-            </RelativeLayout>
 
-        </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -24,6 +26,9 @@ class Home : Fragment() {
     private lateinit var view: View
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var notifications: ArrayList<Notification>
+    private lateinit var adapter: NotificationAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,17 +42,17 @@ class Home : Fragment() {
         database = FirebaseDatabase.getInstance()
         firebaseAuth = FirebaseAuth.getInstance()
 
-        FirebaseAuth.getInstance().uid?.let {
+        firebaseAuth.uid?.let {
             database.reference.child("user").child(it)
                 .child("profileImage").addValueEventListener(object : ValueEventListener {
 
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val imageView = binding.avatar
-                        if(snapshot.exists()){
-                        Glide.with(this@Home)
-                            .load(snapshot.value)
-                            .placeholder(R.drawable.image_avatar)
-                            .into(imageView)
+                        if (snapshot.exists()) {
+                            Glide.with(this@Home)
+                                .load(snapshot.value)
+                                .placeholder(R.drawable.image_avatar)
+                                .into(imageView)
                         }
                     }
 
@@ -55,19 +60,48 @@ class Home : Fragment() {
                 })
         }
 
-        database.reference.child("user").child(firebaseAuth.uid!!).child("name").addValueEventListener(object : ValueEventListener{
+        database.reference.child("user")
+            .child(firebaseAuth.uid!!)
+            .child("name")
+            .addValueEventListener(object : ValueEventListener {
 
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
-                    binding.userName?.text  = snapshot.value as CharSequence?
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        binding.userName?.text = snapshot.value as CharSequence?
+                    }
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {}
-        })
+                override fun onCancelled(error: DatabaseError) {}
+            })
 
-        setUpRecyclerView()
+        notifications = ArrayList()
+        recyclerView = view.findViewById(R.id.notificationRecyclerView)
 
+        adapter = NotificationAdapter(this.requireContext(), notifications)
+        val layoutManager = GridLayoutManager(this.context, 1)
+        recyclerView.layoutManager = layoutManager
+
+        recyclerView.adapter = adapter
+        recyclerView.setHasFixedSize(true)
+
+        database.reference.child("userNotification")
+            .child(firebaseAuth.uid!!)
+            .addValueEventListener(object : ValueEventListener {
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    notifications.clear()
+                    for (snapshot1 in snapshot.children) {
+                        val notification = snapshot1.getValue(Notification::class.java)
+                        if (notification != null) {
+                            notifications.add(notification)
+                        }
+                    }
+                    adapter.notifyDataSetChanged()
+                }
+
+
+                override fun onCancelled(error: DatabaseError) {}
+            })
 
 
         binding.avatar.setOnClickListener {
@@ -82,7 +116,6 @@ class Home : Fragment() {
         binding.card4.setOnClickListener {
             view.findNavController().navigate(R.id.action_home_to_friends)
         }
-
 
         return view
     }
@@ -103,12 +136,4 @@ class Home : Fragment() {
             .setValue("Offline")
     }
 
-    private fun setUpRecyclerView(){
-        val layoutManager = LinearLayoutManager(binding.notificationRecyclerView?.context)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
-        binding.notificationRecyclerView?.layoutManager = layoutManager
-
-        val adapter = context?.let { NotificationAdapter(it, NotificationModel.Supplier.notificationModels) }
-        binding.notificationRecyclerView?.adapter = adapter
-    }
 }

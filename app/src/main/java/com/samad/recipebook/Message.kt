@@ -17,6 +17,5 @@ class Message {
         this.messsage = message
         this.senderId = senderId
         this.timeStamp = timeStamp
-
     }
 }

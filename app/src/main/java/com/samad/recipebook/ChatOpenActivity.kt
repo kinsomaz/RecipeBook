@@ -26,6 +26,7 @@ import java.util.Date
 class ChatOpenActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityChatOpenBinding
+    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var startActivityLauncher: ActivityResultLauncher<String>
 
     var adapter: MessageAdapter? = null
@@ -45,6 +46,7 @@ class ChatOpenActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        firebaseAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         storage = FirebaseStorage.getInstance()
         dialog = ProgressDialog(this)
@@ -94,6 +96,7 @@ class ChatOpenActivity : AppCompatActivity() {
 
                 }
             })
+
         senderRoom = senderUid + receiverUid
         receiverRoom = receiverUid + senderUid
 
@@ -123,10 +126,25 @@ class ChatOpenActivity : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {}
 
             })
+
         binding.send.setOnClickListener {
             val messageTxt: String = binding!!.messageBox.text.toString()
             val date = Date()
             val message = Message(messageTxt, senderUid, date.time)
+
+            database!!.reference.child("user").child(firebaseAuth.uid!!)
+                .child("name")
+                .addValueEventListener(object : ValueEventListener{
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val name = snapshot.value
+                    addToHisNotifications(receiverUid!!, "$name sent you a message")
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {}
+            })
+
 
             binding.messageBox.setText("")
             val randomKey = database!!.reference.push().key
@@ -149,6 +167,7 @@ class ChatOpenActivity : AppCompatActivity() {
                         .setValue(message)
                         .addOnSuccessListener { }
                 }
+
         }
         binding.attachment.setOnClickListener {
             startActivityLauncher.launch("image/**")
@@ -238,6 +257,23 @@ class ChatOpenActivity : AppCompatActivity() {
                     }
                 }
         }
+    }
+
+    private fun addToHisNotifications(hisUid: String, notification: String) {
+        firebaseAuth = FirebaseAuth.getInstance()
+        val timestamp = ""+System.currentTimeMillis()
+        val randomKey = database!!.reference.push().key
+        val hashMap = HashMap<String,Any?>()
+        hashMap["timestamp"] = timestamp
+        hashMap["sUid"] = firebaseAuth.uid
+        hashMap["notification"] = notification
+
+        database!!.reference.child("userNotification")
+            .child(hisUid)
+            .child(randomKey!!)
+            .setValue(hashMap)
+            .addOnSuccessListener {}
+
     }
 
 }

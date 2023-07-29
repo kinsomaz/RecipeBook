@@ -52,8 +52,6 @@ class Chats : Fragment() {
         val layoutManager = GridLayoutManager(this.context,1)
         binding.chatRecyclerView.layoutManager = layoutManager
 
-
-
         binding.chatRecyclerView.adapter = chatAdapter
 
         database.reference.child("userFriend")
