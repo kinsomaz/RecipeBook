@@ -41,7 +41,7 @@
                 <ImageView
                     android:id="@+id/swipe_II"
                     android:layout_width="190dp"
-                    android:layout_height="30dp"
+                    android:layout_height="34dp"
                     android:contentDescription="swipe"
                     android:src="@drawable/btn"
                     app:layout_constraintBottom_toBottomOf="parent"
