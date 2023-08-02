@@ -54,7 +54,7 @@ class Login : Fragment() {
         binding = FragmentLoginBinding.inflate(layoutInflater)
         view = binding.root
 
-        myLifeCycleObserver = MyLifeCycleObserver(this.lifecycle, binding.relativeLayout.context)
+        myLifeCycleObserver = MyLifeCycleObserver(this.lifecycle, this.requireContext())
         lifecycle.addObserver(myLifeCycleObserver)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -64,7 +64,7 @@ class Login : Fragment() {
             .requestEmail()
             .build()
 
-        googleSignInClient = GoogleSignIn.getClient(binding.relativeLayout.context, gsa)
+        googleSignInClient = GoogleSignIn.getClient(this.requireContext(), gsa)
 
         binding.createButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_login_to_signUp)

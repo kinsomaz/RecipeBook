@@ -1,257 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/networksFirstLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".Networks">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/networksFirstLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="0dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="25dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="60dp"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <!-- back -->
-            <ImageView
-                android:id="@+id/back_networkIcon"
-                android:layout_width="45.68dp"
-                android:layout_height="45.68dp"
-                android:layout_gravity="center_vertical"
-                android:background="@drawable/back1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/black" />
-
-            <!-- Chats -->
-            <TextView
-                android:id="@+id/networksPage"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="17.13dp"
-                android:gravity="center"
-                android:lineSpacingExtra="13sp"
-                android:text="@string/networksPage"
-                android:textAppearance="@style/chatsPage"
-                android:textStyle="bold|normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/back_networkIcon"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginEnd="25dp"
+                android:orientation="horizontal">
 
-            <!-- logo -->
-            <ImageView
-                android:id="@+id/logo_network"
-                android:layout_width="38.83dp"
-                android:layout_height="42.25dp"
-                android:layout_gravity="center_vertical"
-                android:background="@drawable/logo"
-                android:elevation="20dp"
-                android:outlineAmbientShadowColor="#14000000"
-                android:outlineSpotShadowColor="#80000000"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <!-- back -->
+                <ImageView
+                    android:id="@+id/back_networkIcon"
+                    android:layout_width="45.68dp"
+                    android:layout_height="45.68dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/back1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/black" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <!-- Chats -->
+                <TextView
+                    android:id="@+id/networksPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="17.13dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="13sp"
+                    android:text="@string/networksPage"
+                    android:textAppearance="@style/chatsPage"
+                    android:textStyle="bold|normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/back_networkIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.appcompat.widget.Toolbar>
+                <!-- logo -->
+                <ImageView
+                    android:id="@+id/logo_network"
+                    android:layout_width="38.83dp"
+                    android:layout_height="42.25dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/logo"
+                    android:elevation="20dp"
+                    android:outlineAmbientShadowColor="#14000000"
+                    android:outlineSpotShadowColor="#80000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Search -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/searchContainer"
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="41dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="20dp"
-        android:outlineSpotShadowColor="#80000000"
-        android:outlineAmbientShadowColor="#80000000"
-        app:layout_constraintEnd_toEndOf="@+id/networksFirstLayout"
-        app:layout_constraintStart_toStartOf="@+id/networksFirstLayout"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" >
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
+        </androidx.appcompat.widget.Toolbar>
+
+        <!-- Search -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:queryHint="@string/searchNetworks"
-            app:iconifiedByDefault="false"
-            app:queryBackground="@android:color/transparent"/>
+            android:layout_height="51dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="41dp"
+            android:outlineAmbientShadowColor="#80000000"
+            android:outlineSpotShadowColor="#80000000"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/networksFirstLayout"
+            app:layout_constraintStart_toStartOf="@+id/networksFirstLayout"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-    </androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="@string/searchNetworks" />
 
-
-
-    <!-- Title -->
-    <TextView
-        android:id="@+id/networksSubTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="29dp"
-        android:gravity="center_vertical"
-        android:lineSpacingExtra="-3sp"
-        android:text="@string/networksSubTitle"
-        android:textAppearance="@style/networksSubTitle"
-        app:layout_constraintStart_toStartOf="@+id/networksFirstLayout"
-        app:layout_constraintTop_toBottomOf="@+id/searchContainer" />
-
-    <!-- Explore -->
-    <TextView
-        android:id="@+id/explore"
-        android:layout_width="160dp"
-        android:layout_height="20dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="35dp"
-        android:gravity="center"
-        android:text="@string/networks_explore"
-        android:textAppearance="@style/explore"
-        app:layout_constraintBottom_toBottomOf="@+id/networksFirstLayout"
-        app:layout_constraintEnd_toEndOf="@id/networksFirstLayout"
-        app:layout_constraintStart_toStartOf="@+id/networksFirstLayout" />
-
-    <!-- Underline -->
-    <ImageView
-        android:id="@+id/underline"
-        android:layout_width="160dp"
-        android:layout_height="2.23dp"
-        android:layout_gravity="center_horizontal"
-        android:alpha="0.5"
-        android:src="@drawable/underline"
-        app:layout_constraintEnd_toEndOf="@id/explore"
-        app:layout_constraintStart_toStartOf="@id/explore"
-        app:layout_constraintTop_toBottomOf="@+id/explore" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="28dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/explore"
-        app:layout_constraintTop_toBottomOf="@id/networksSubTitle">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/firstInnerLayout"
-            android:layout_width="188dp"
-            android:layout_height="112dp"
-            android:visibility="visible">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/firstRecipe"
-                android:layout_width="165dp"
-                android:layout_height="87dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="15dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/firstInnerLayout">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/bitmap1"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:layout_marginStart="5dp"
-                        app:cardElevation="10dp"
-                        app:cardCornerRadius="5dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/first_recipe_title"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/bitmap1"/>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/first_recipe_title"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:lineSpacingExtra="3sp"
-                        android:text="@string/first_recipe_title"
-                        android:textAppearance="@style/network_recipe_title"
-                        android:translationZ="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/bitmap1"
-                        app:layout_constraintTop_toTopOf="parent" />
+        </androidx.cardview.widget.CardView>
 
 
+        <!-- Title -->
+        <TextView
+            android:id="@+id/networksSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="29dp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="-3sp"
+            android:text="@string/networksSubTitle"
+            android:textAppearance="@style/networksSubTitle"
+            app:layout_constraintStart_toStartOf="@+id/networksFirstLayout"
+            app:layout_constraintTop_toBottomOf="@+id/searchContainer" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Explore -->
+        <TextView
+            android:id="@+id/explore"
+            android:layout_width="160dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="35dp"
+            android:gravity="center"
+            android:text="@string/networks_explore"
+            android:textAppearance="@style/explore"
+            app:layout_constraintBottom_toBottomOf="@+id/networksFirstLayout"
+            app:layout_constraintEnd_toEndOf="@id/networksFirstLayout"
+            app:layout_constraintStart_toStartOf="@+id/networksFirstLayout" />
 
-            </androidx.cardview.widget.CardView>
+        <!-- Underline -->
+        <ImageView
+            android:id="@+id/underline"
+            android:layout_width="160dp"
+            android:layout_height="2.23dp"
+            android:layout_gravity="center_horizontal"
+            android:alpha="0.5"
+            android:src="@drawable/underline"
+            app:layout_constraintEnd_toEndOf="@id/explore"
+            app:layout_constraintStart_toStartOf="@id/explore"
+            app:layout_constraintTop_toBottomOf="@+id/explore" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/explore"
+            app:layout_constraintTop_toBottomOf="@id/networksSubTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstInnerLayout"
+                android:layout_width="188dp"
+                android:layout_height="112dp"
+                android:visibility="visible">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/firstRecipe"
+                    android:layout_width="165dp"
+                    android:layout_height="87dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/firstInnerLayout">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/bitmap1"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_marginStart="5dp"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/first_recipe_title"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/bitmap1" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/first_recipe_title"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="3sp"
+                            android:text="@string/first_recipe_title"
+                            android:textAppearance="@style/network_recipe_title"
+                            android:translationZ="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/bitmap1"
+                            app:layout_constraintTop_toTopOf="parent" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/secondInnerLayout"
-            android:layout_width="188dp"
-            android:layout_height="112dp"
-            android:visibility="visible">
-
-            <View
-                android:id="@+id/secondNetworkInnerView"
-                android:layout_width="165dp"
-                android:layout_height="87dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/card1"
-                android:translationZ="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/secondInnerLayout" />
-
-            <ImageView
-                android:id="@+id/bitmap2"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/bitmap1"
-                android:translationZ="10dp"
-                app:layout_constraintBottom_toBottomOf="@id/secondNetworkInnerView"
-                app:layout_constraintEnd_toStartOf="@id/second_recipe_title"
-                app:layout_constraintStart_toStartOf="@id/secondNetworkInnerView"
-                app:layout_constraintTop_toTopOf="@id/secondNetworkInnerView" />
-
-            <TextView
-                android:id="@+id/second_recipe_title"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="3sp"
-                android:text="@string/first_recipe_title"
-                android:textAppearance="@style/network_recipe_title"
-                android:translationZ="10dp"
-                app:layout_constraintBottom_toBottomOf="@id/secondNetworkInnerView"
-                app:layout_constraintEnd_toEndOf="@id/secondNetworkInnerView"
-                app:layout_constraintStart_toEndOf="@id/bitmap2"
-                app:layout_constraintTop_toTopOf="@id/secondNetworkInnerView" />
+                </androidx.cardview.widget.CardView>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/secondInnerLayout"
+                android:layout_width="188dp"
+                android:layout_height="112dp"
+                android:visibility="visible">
+
+                <View
+                    android:id="@+id/secondNetworkInnerView"
+                    android:layout_width="165dp"
+                    android:layout_height="87dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/card1"
+                    android:translationZ="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/secondInnerLayout" />
+
+                <ImageView
+                    android:id="@+id/bitmap2"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/bitmap1"
+                    android:translationZ="10dp"
+                    app:layout_constraintBottom_toBottomOf="@id/secondNetworkInnerView"
+                    app:layout_constraintEnd_toStartOf="@id/second_recipe_title"
+                    app:layout_constraintStart_toStartOf="@id/secondNetworkInnerView"
+                    app:layout_constraintTop_toTopOf="@id/secondNetworkInnerView" />
+
+                <TextView
+                    android:id="@+id/second_recipe_title"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/first_recipe_title"
+                    android:textAppearance="@style/network_recipe_title"
+                    android:translationZ="10dp"
+                    app:layout_constraintBottom_toBottomOf="@id/secondNetworkInnerView"
+                    app:layout_constraintEnd_toEndOf="@id/secondNetworkInnerView"
+                    app:layout_constraintStart_toEndOf="@id/bitmap2"
+                    app:layout_constraintTop_toTopOf="@id/secondNetworkInnerView" />
 
 
-    </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

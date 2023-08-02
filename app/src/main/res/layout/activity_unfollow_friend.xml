@@ -1,248 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".Profile">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/unfollowFirstLayout"
         android:layout_width="match_parent"
-        android:layout_height="411dp"
-        android:background="@drawable/profile_rectangle"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="0dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/unfollowFirstLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
-            android:theme="?attr/actionBarTheme"
+            android:layout_height="411dp"
+            android:background="@drawable/profile_rectangle"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="45dp"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <!-- Back -->
-                <ImageView
-                    android:id="@+id/back"
-                    android:layout_width="45.5dp"
-                    android:layout_height="45.5dp"
-                    android:layout_marginStart="5dp"
-                    android:contentDescription="@string/back"
-                    android:src="@drawable/back"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!-- Back -->
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="45.5dp"
+                        android:layout_height="45.5dp"
+                        android:layout_marginStart="5dp"
+                        android:contentDescription="@string/back"
+                        android:src="@drawable/back"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.appcompat.widget.Toolbar>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/image"
-            android:layout_width="103dp"
-            android:layout_height="103dp"
-            android:layout_marginTop="90.22dp"
-            android:src="@drawable/image_avatar"
-            app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
-            app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
-            app:layout_constraintTop_toTopOf="@id/unfollowFirstLayout" />
-
-        <!-- Name -->
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center_vertical"
-            android:lineSpacingExtra="13sp"
-            android:text="@string/unfollow_name"
-            android:textAppearance="@style/unfollow_name"
-            app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
-            app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
-            app:layout_constraintTop_toBottomOf="@+id/image" />
-
-        <!-- Count -->
-        <TextView
-            android:id="@+id/friends_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="top"
-            android:text="@string/friends_count"
-            android:textAppearance="@style/friends_count"
-            app:layout_constraintEnd_toStartOf="@id/networks_count"
-            app:layout_constraintStart_toStartOf="@id/unfollowFirstLayout"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
-
-        <!-- Count -->
-        <TextView
-            android:id="@+id/networks_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="top"
-            android:text="@string/networks_count"
-            android:textAppearance="@style/networks_count"
-            app:layout_constraintEnd_toStartOf="@id/uploads_count"
-            app:layout_constraintStart_toEndOf="@id/friends_count"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
-
-        <!-- Count -->
-        <TextView
-            android:id="@+id/uploads_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="top"
-            android:text="@string/uploads_count"
-            android:textAppearance="@style/uploads_count"
-            app:layout_constraintEnd_toEndOf="@id/unfollowFirstLayout"
-            app:layout_constraintStart_toEndOf="@id/networks_count"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
-
-        <!-- Count -->
-        <TextView
-            android:id="@+id/friends_count_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="top"
-            android:lineSpacingExtra="6sp"
-            android:text="@string/friends_count_title"
-            android:textAppearance="@style/friends_count_title"
-            android:translationY="-3sp"
-            app:layout_constraintEnd_toEndOf="@id/friends_count"
-            app:layout_constraintStart_toStartOf="@id/friends_count"
-            app:layout_constraintTop_toBottomOf="@+id/friends_count" />
-
-        <!-- Count -->
-        <TextView
-            android:id="@+id/networks_count_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="top"
-            android:lineSpacingExtra="6sp"
-            android:text="@string/networks_count_title"
-            android:textAppearance="@style/networks_count_title"
-            android:translationY="-3sp"
-            app:layout_constraintEnd_toEndOf="@id/networks_count"
-            app:layout_constraintStart_toStartOf="@id/networks_count"
-            app:layout_constraintTop_toBottomOf="@+id/networks_count" />
-
-        <!-- Count -->
-        <TextView
-            android:id="@+id/uploads_count_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="top"
-            android:lineSpacingExtra="6sp"
-            android:text="@string/uploads_count_title"
-            android:textAppearance="@style/uploads_count_title"
-            android:translationY="-3sp"
-            app:layout_constraintEnd_toEndOf="@id/uploads_count"
-            app:layout_constraintStart_toStartOf="@id/uploads_count"
-            app:layout_constraintTop_toBottomOf="@+id/uploads_count" />
-
-        <Button
-            android:id="@+id/removeFriendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="39dp"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="#979797"
-            android:elevation="10dp"
-            android:textAppearance="@style/remove_friend"
-            android:text="@string/remove_friend"
-            app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
-            app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
-            app:layout_constraintTop_toBottomOf="@+id/networks_count_title" />
-
-        <Button
-            android:id="@+id/addFriendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="39dp"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="#979797"
-            android:elevation="10dp"
-            android:visibility="gone"
-            android:textAppearance="@style/remove_friend"
-            android:text="@string/add_friend"
-            app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
-            app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
-            app:layout_constraintTop_toBottomOf="@+id/networks_count_title" />
+            </androidx.appcompat.widget.Toolbar>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image"
+                android:layout_width="103dp"
+                android:layout_height="103dp"
+                android:layout_marginTop="90.22dp"
+                android:src="@drawable/image_avatar"
+                app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
+                app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
+                app:layout_constraintTop_toTopOf="@id/unfollowFirstLayout" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/unfollowSecondLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="-34dp"
-        android:background="@drawable/card"
-        android:paddingHorizontal="30dp"
-        android:translationZ="46dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/unfollowFirstLayout">
+            <!-- Name -->
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="13sp"
+                android:text="@string/unfollow_name"
+                android:textAppearance="@style/unfollow_name"
+                app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
+                app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
+                app:layout_constraintTop_toBottomOf="@+id/image" />
 
-        <!-- About -->
-        <TextView
-            android:id="@+id/unfollow_about"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:gravity="center_vertical"
-            android:lineSpacingExtra="17sp"
-            android:text="@string/about"
-            android:textAppearance="@style/about"
-            app:layout_constraintStart_toStartOf="@+id/unfollowSecondLayout"
-            app:layout_constraintTop_toTopOf="@+id/unfollowSecondLayout" />
+            <!-- Count -->
+            <TextView
+                android:id="@+id/friends_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="top"
+                android:text="@string/friends_count"
+                android:textAppearance="@style/friends_count"
+                app:layout_constraintEnd_toStartOf="@id/networks_count"
+                app:layout_constraintStart_toStartOf="@id/unfollowFirstLayout"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
-        <!-- Text -->
-        <TextView
-            android:id="@+id/about_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="start"
-            android:lineSpacingExtra="5sp"
-            android:text="@string/about_text"
-            android:textAppearance="@style/about_text"
-            app:layout_constraintEnd_toEndOf="@id/unfollowSecondLayout"
-            app:layout_constraintStart_toStartOf="@id/unfollowSecondLayout"
-            app:layout_constraintTop_toBottomOf="@+id/unfollow_about" />
+            <!-- Count -->
+            <TextView
+                android:id="@+id/networks_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="top"
+                android:text="@string/networks_count"
+                android:textAppearance="@style/networks_count"
+                app:layout_constraintEnd_toStartOf="@id/uploads_count"
+                app:layout_constraintStart_toEndOf="@id/friends_count"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
-        <TextView
-            android:id="@+id/likes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:gravity="center_vertical"
-            android:lineSpacingExtra="17sp"
-            android:text="@string/likes"
-            android:textAppearance="@style/likes"
-            app:layout_constraintStart_toStartOf="@+id/unfollowSecondLayout"
-            app:layout_constraintTop_toBottomOf="@+id/about_text" />
+            <!-- Count -->
+            <TextView
+                android:id="@+id/uploads_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="top"
+                android:text="@string/uploads_count"
+                android:textAppearance="@style/uploads_count"
+                app:layout_constraintEnd_toEndOf="@id/unfollowFirstLayout"
+                app:layout_constraintStart_toEndOf="@id/networks_count"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/likeRecyclerView"
+            <!-- Count -->
+            <TextView
+                android:id="@+id/friends_count_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="top"
+                android:lineSpacingExtra="6sp"
+                android:text="@string/friends_count_title"
+                android:textAppearance="@style/friends_count_title"
+                android:translationY="-3sp"
+                app:layout_constraintEnd_toEndOf="@id/friends_count"
+                app:layout_constraintStart_toStartOf="@id/friends_count"
+                app:layout_constraintTop_toBottomOf="@+id/friends_count" />
+
+            <!-- Count -->
+            <TextView
+                android:id="@+id/networks_count_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="top"
+                android:lineSpacingExtra="6sp"
+                android:text="@string/networks_count_title"
+                android:textAppearance="@style/networks_count_title"
+                android:translationY="-3sp"
+                app:layout_constraintEnd_toEndOf="@id/networks_count"
+                app:layout_constraintStart_toStartOf="@id/networks_count"
+                app:layout_constraintTop_toBottomOf="@+id/networks_count" />
+
+            <!-- Count -->
+            <TextView
+                android:id="@+id/uploads_count_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="top"
+                android:lineSpacingExtra="6sp"
+                android:text="@string/uploads_count_title"
+                android:textAppearance="@style/uploads_count_title"
+                android:translationY="-3sp"
+                app:layout_constraintEnd_toEndOf="@id/uploads_count"
+                app:layout_constraintStart_toStartOf="@id/uploads_count"
+                app:layout_constraintTop_toBottomOf="@+id/uploads_count" />
+
+            <Button
+                android:id="@+id/removeFriendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="39dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#979797"
+                android:elevation="10dp"
+                android:text="@string/remove_friend"
+                android:textAppearance="@style/remove_friend"
+                app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
+                app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
+                app:layout_constraintTop_toBottomOf="@+id/networks_count_title" />
+
+            <Button
+                android:id="@+id/addFriendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="39dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#979797"
+                android:elevation="10dp"
+                android:text="@string/add_friend"
+                android:textAppearance="@style/remove_friend"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/unfollowFirstLayout"
+                app:layout_constraintStart_toStartOf="@+id/unfollowFirstLayout"
+                app:layout_constraintTop_toBottomOf="@+id/networks_count_title" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/unfollowSecondLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/likes"
-            tools:listitem="@layout/likes_view" />
+            android:layout_height="0dp"
+            android:layout_marginTop="-34dp"
+            android:background="@drawable/card"
+            android:paddingHorizontal="30dp"
+            app:layout_constraintTop_toBottomOf="@id/unfollowFirstLayout">
 
+            <!-- About -->
+            <TextView
+                android:id="@+id/unfollow_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="17sp"
+                android:text="@string/about"
+                android:textAppearance="@style/about"
+                app:layout_constraintStart_toStartOf="@+id/unfollowSecondLayout"
+                app:layout_constraintTop_toTopOf="@+id/unfollowSecondLayout" />
+
+            <!-- Text -->
+            <TextView
+                android:id="@+id/about_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="start"
+                android:lineSpacingExtra="5sp"
+                android:text="@string/about_text"
+                android:textAppearance="@style/about_text"
+                app:layout_constraintEnd_toEndOf="@id/unfollowSecondLayout"
+                app:layout_constraintStart_toStartOf="@id/unfollowSecondLayout"
+                app:layout_constraintTop_toBottomOf="@+id/unfollow_about" />
+
+            <TextView
+                android:id="@+id/likes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="17sp"
+                android:text="@string/likes"
+                android:textAppearance="@style/likes"
+                app:layout_constraintStart_toStartOf="@+id/unfollowSecondLayout"
+                app:layout_constraintTop_toBottomOf="@+id/about_text" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/likeRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/likes"
+                tools:itemCount="3"
+                tools:listitem="@layout/likes_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

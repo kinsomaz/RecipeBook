@@ -1,205 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".RecipePage_II">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/recipeFirstLayout_II"
         android:layout_width="match_parent"
-        android:layout_height="287dp"
-        android:background="@drawable/bg"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="0dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/recipeFirstLayout_II"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:theme="?attr/actionBarTheme"
+            android:layout_height="287dp"
+            android:background="@drawable/bg"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="32dp"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <!-- back -->
-                <ImageView
-                    android:id="@+id/back_II"
-                    android:layout_width="45.5dp"
-                    android:layout_height="45.5dp"
-                    android:contentDescription="@string/back"
-                    android:src="@drawable/back"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal">
+
+                    <!-- back -->
+                    <ImageView
+                        android:id="@+id/back_II"
+                        android:layout_width="45.5dp"
+                        android:layout_height="45.5dp"
+                        android:contentDescription="@string/back"
+                        android:src="@drawable/back"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/swipe_II"
+                        android:layout_width="190dp"
+                        android:layout_height="34dp"
+                        android:contentDescription="swipe"
+                        android:src="@drawable/btn"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Text -->
+                    <TextView
+                        android:id="@+id/swipeText_II"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center_horizontal"
+                        android:lineSpacingExtra="4sp"
+                        android:text="@string/swipeText_II"
+                        android:textAppearance="@style/swipeText"
+                        app:layout_constraintBottom_toBottomOf="@+id/swipe_II"
+                        app:layout_constraintEnd_toStartOf="@+id/arrow_II"
+                        app:layout_constraintStart_toEndOf="@+id/swipe_II"
+                        app:layout_constraintTop_toTopOf="@+id/swipe_II" />
+
+                    <!-- Arrow -->
+                    <ImageView
+                        android:id="@+id/arrow_II"
+                        android:layout_width="13dp"
+                        android:layout_height="14dp"
+                        android:contentDescription="arrow"
+                        android:src="@drawable/arrow_back"
+                        app:layout_constraintBottom_toBottomOf="@+id/swipeText_II"
+                        app:layout_constraintEnd_toStartOf="@+id/swipe_II"
+                        app:layout_constraintStart_toStartOf="@+id/swipeText_II"
+                        app:layout_constraintTop_toTopOf="@+id/swipeText_II" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <!-- Search by Recipe -->
+            <TextView
+                android:id="@+id/search_by_r_II"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="14sp"
+                android:text="@string/search_by_r_II"
+                android:textAppearance="@style/search_by_r"
+                app:layout_constraintStart_toStartOf="@+id/recipeFirstLayout_II"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <!-- Search -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/searchContainer"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="11dp"
+                android:outlineAmbientShadowColor="#80000000"
+                android:outlineSpotShadowColor="#80000000"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="20dp"
+                app:layout_constraintStart_toStartOf="@+id/recipeFirstLayout_II"
+                app:layout_constraintTop_toBottomOf="@+id/search_by_r_II">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView_II"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:iconifiedByDefault="false"
+                    app:queryBackground="@android:color/transparent"
+                    app:queryHint="@string/searchPlaceholder_II" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Card -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_II"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="-24dp"
+            android:background="@drawable/card"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipeFirstLayout_II">
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recipeRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </ScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/secondRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="420dp"
+                android:layout_gravity="center_horizontal"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@id/scrollView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="15dp"
+                tools:listitem="@layout/item_view" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/exploreContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/secondRecyclerView"
+                app:layout_constraintStart_toStartOf="@id/secondRecyclerView">
+
+                <!-- Explore -->
+                <TextView
+                    android:id="@+id/explore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="@string/explore"
+                    android:textAppearance="@style/explore"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!-- Underline -->
                 <ImageView
-                    android:id="@+id/swipe_II"
-                    android:layout_width="190dp"
-                    android:layout_height="34dp"
-                    android:contentDescription="swipe"
-                    android:src="@drawable/btn"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <!-- Text -->
-                <TextView
-                    android:id="@+id/swipeText_II"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:gravity="center_horizontal"
-                    android:lineSpacingExtra="4sp"
-                    android:text="@string/swipeText_II"
-                    android:textAppearance="@style/swipeText"
-                    app:layout_constraintBottom_toBottomOf="@+id/swipe_II"
-                    app:layout_constraintEnd_toStartOf="@+id/arrow_II"
-                    app:layout_constraintStart_toEndOf="@+id/swipe_II"
-                    app:layout_constraintTop_toTopOf="@+id/swipe_II" />
-
-                <!-- Arrow -->
-                <ImageView
-                    android:id="@+id/arrow_II"
-                    android:layout_width="13dp"
-                    android:layout_height="14dp"
-                    android:contentDescription="arrow"
-                    android:src="@drawable/arrow_back"
-                    app:layout_constraintBottom_toBottomOf="@+id/swipeText_II"
-                    app:layout_constraintEnd_toStartOf="@+id/swipe_II"
-                    app:layout_constraintStart_toStartOf="@+id/swipeText_II"
-                    app:layout_constraintTop_toTopOf="@+id/swipeText_II" />
+                    android:id="@+id/underline"
+                    android:layout_width="160dp"
+                    android:layout_height="2.23dp"
+                    android:alpha="0.5"
+                    android:src="@drawable/underline"
+                    app:layout_constraintEnd_toEndOf="@id/explore"
+                    app:layout_constraintStart_toStartOf="@id/explore"
+                    app:layout_constraintTop_toBottomOf="@id/explore" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.appcompat.widget.Toolbar>
-
-        <!-- Search by Recipe -->
-        <TextView
-            android:id="@+id/search_by_r_II"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center_vertical"
-            android:lineSpacingExtra="14sp"
-            android:text="@string/search_by_r_II"
-            android:textAppearance="@style/search_by_r"
-            app:layout_constraintStart_toStartOf="@+id/recipeFirstLayout_II"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <!-- Search -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/searchContainer"
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="11dp"
-            android:outlineAmbientShadowColor="#80000000"
-            android:outlineSpotShadowColor="#80000000"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="20dp"
-            app:layout_constraintStart_toStartOf="@+id/recipeFirstLayout_II"
-            app:layout_constraintTop_toBottomOf="@+id/search_by_r_II">
-
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView_II"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:iconifiedByDefault="false"
-                app:queryBackground="@android:color/transparent"
-                app:queryHint="@string/searchPlaceholder_II" />
-
-        </androidx.cardview.widget.CardView>
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- Card -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/card_II"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="-24dp"
-        android:background="@drawable/card"
-        android:orientation="vertical"
-        android:paddingTop="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recipeFirstLayout_II">
-
-        <ScrollView
-            android:id="@+id/scrollView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recipeRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </ScrollView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/secondRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="420dp"
-            android:layout_gravity="center_horizontal"
-            android:visibility="visible"
-            app:layout_constraintTop_toBottomOf="@id/scrollView"
-            tools:layout_editor_absoluteX="15dp"
-            tools:listitem="@layout/item_view"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/exploreContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="@id/secondRecyclerView"
-            app:layout_constraintEnd_toEndOf="@id/secondRecyclerView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="10dp">
-
-            <!-- Explore -->
-            <TextView
-                android:id="@+id/explore"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:text="@string/explore"
-                android:textAppearance="@style/explore"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <!-- Underline -->
-            <ImageView
-                android:id="@+id/underline"
-                android:layout_width="160dp"
-                android:layout_height="2.23dp"
-                android:alpha="0.5"
-                android:src="@drawable/underline"
-                app:layout_constraintEnd_toEndOf="@id/explore"
-                app:layout_constraintStart_toStartOf="@id/explore"
-                app:layout_constraintTop_toBottomOf="@id/explore" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
