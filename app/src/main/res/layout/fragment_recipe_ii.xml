@@ -37,18 +37,21 @@
                         android:id="@+id/back_II"
                         android:layout_width="45.5dp"
                         android:layout_height="45.5dp"
+                        android:background="@drawable/round_circle"
                         android:contentDescription="@string/back"
-                        android:src="@drawable/back"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="13dp"
+                        android:src="@drawable/back_icon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
                         android:id="@+id/swipe_II"
-                        android:layout_width="190dp"
+                        android:layout_width="193dp"
                         android:layout_height="34dp"
                         android:contentDescription="swipe"
-                        android:src="@drawable/btn"
+                        android:src="@drawable/swipe_background"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -130,12 +133,10 @@
             android:id="@+id/card_II"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_alignParentStart="true"
             android:layout_marginTop="-24dp"
             android:background="@drawable/card"
             android:orientation="vertical"
             android:paddingTop="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recipeFirstLayout_II">
 
             <ScrollView
@@ -143,8 +144,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recipeRecyclerView"
@@ -156,10 +157,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/secondRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="420dp"
+                android:layout_height="380dp"
                 android:layout_gravity="center_horizontal"
                 android:visibility="visible"
-                app:layout_constraintTop_toBottomOf="@id/scrollView"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="15dp"
                 tools:listitem="@layout/item_view" />
@@ -169,10 +169,9 @@
                 android:id="@+id/exploreContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/secondRecyclerView"
                 app:layout_constraintEnd_toEndOf="@id/secondRecyclerView"
                 app:layout_constraintStart_toStartOf="@id/secondRecyclerView">
 

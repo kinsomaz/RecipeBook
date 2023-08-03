@@ -15,16 +15,16 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_marginTop="32dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginEnd="25dp">
+                android:layout_marginEnd="25dp"
+                android:orientation="horizontal">
 
                 <!-- back -->
                 <ImageView
@@ -32,11 +32,14 @@
                     android:layout_width="45.68dp"
                     android:layout_height="45.68dp"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/back1"
-                    app:tint="@color/black"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/round_circle"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="13dp"
+                    android:src="@drawable/back_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#CC010205" />
 
                 <!-- Chats -->
                 <TextView
@@ -46,13 +49,13 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="17.13dp"
                     android:gravity="center"
-                    android:textStyle="bold|normal"
                     android:lineSpacingExtra="13sp"
                     android:text="@string/chatsPage"
                     android:textAppearance="@style/chatsPage"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:textStyle="bold|normal"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/back_chatsIcon"/>
+                    app:layout_constraintStart_toEndOf="@id/back_chatsIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <!-- logo -->
                 <ImageView
@@ -64,9 +67,9 @@
                     android:elevation="20dp"
                     android:outlineAmbientShadowColor="#14000000"
                     android:outlineSpotShadowColor="#80000000"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

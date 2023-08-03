@@ -39,7 +39,10 @@
                         android:layout_height="45.5dp"
                         android:layout_marginStart="5dp"
                         android:contentDescription="@string/back"
-                        android:src="@drawable/back"
+                        android:background="@drawable/round_circle"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="13dp"
+                        android:src="@drawable/back_icon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

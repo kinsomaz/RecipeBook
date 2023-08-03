@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingEnd="10dp"
+    android:layout_columnWeight="1"
     android:paddingVertical="6dp"
-    android:layout_columnWeight="1">
+    android:paddingEnd="10dp">
 
     <TextView
         android:id="@+id/like"
@@ -14,8 +14,8 @@
         android:background="@drawable/round_rec"
         android:gravity="center"
         android:lineHeight="14sp"
-        android:paddingVertical="7dp"
         android:paddingHorizontal="15dp"
+        android:paddingVertical="7dp"
         android:text="Button"
         android:textColor="#8894A2"
         android:textSize="12sp"

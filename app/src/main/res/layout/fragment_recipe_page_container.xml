@@ -26,7 +26,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tabBackground="@drawable/tab_selector"
-            app:tabGravity="start"
+            app:tabGravity="center"
             app:tabIndicatorHeight="0dp"
             app:tabSelectedTextColor="@android:color/transparent"
             app:tabTextColor="@android:color/transparent" />
