@@ -63,5 +63,10 @@
     <string name="details">Recipe by</string>
     <string name="name_openRecipe">Collins `Damawa</string>
     <string name="rate">Rate Recipe</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="preparation">See direction for preperation</string>
+    <string name="similar_recipe">3 Similar Recipes to try out</string>
+    <string name="ingre">1/4 cup cornmeal</string>
+    <string name="_1">1</string>
 
 </resources>

@@ -205,6 +205,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="87dp"
             android:layout_marginHorizontal="20dp"
@@ -298,6 +299,66 @@
 
 
         </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/ingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="23dp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="17sp"
+            android:text="@string/ingredients"
+            android:textAppearance="@style/ingredients"
+            android:textStyle="bold|normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            tools:listitem="@layout/ingredients_view"
+            tools:itemCount="6"
+            android:layout_marginTop="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ingredients" />
+
+        <Button
+            android:id="@+id/see_direction_btn"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/preparation"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView" />
+
+        <TextView
+            android:id="@+id/similar_recipe"
+            android:layout_width="198dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="34dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/similar_header_background"
+            android:text="@string/similar_recipe"
+            android:backgroundTint="#979797"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/see_direction_btn" />
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:paddingBottom="18dp"
+            tools:listitem="@layout/recipe_view"
+            tools:itemCount="2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/similar_recipe" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
