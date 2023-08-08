@@ -104,5 +104,8 @@
         <action
             android:id="@+id/action_networks_to_home"
             app:destination="@id/home" />
+        <action
+            android:id="@+id/action_networks_to_recipePageContainer"
+            app:destination="@id/recipePageContainer" />
     </fragment>
 </navigation>

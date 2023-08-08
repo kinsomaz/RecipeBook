@@ -89,6 +89,9 @@ class Networks : Fragment() {
             }
         })
 
+        binding.explore.setOnClickListener {
+            view.findNavController().navigate(R.id.action_networks_to_recipePageContainer)
+        }
 
         return view
 
