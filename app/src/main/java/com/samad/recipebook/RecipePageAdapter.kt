@@ -17,11 +17,9 @@ class RecipePageAdapter(val context: Context, private val recipes: List<Recipe>)
         return MyViewHolder(view)
     }
 
-
     override fun getItemCount(): Int {
         return recipes.size
     }
-
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val recipe = recipes[position]

@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.samad.recipebook.databinding.FragmentHomeBinding
 
-
 class Home : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
@@ -141,6 +140,9 @@ class Home : Fragment() {
         }
         binding.card2.setOnClickListener {
             view.findNavController().navigate(R.id.action_home_to_chats)
+        }
+        binding.card3.setOnClickListener {
+            view.findNavController().navigate(R.id.action_home_to_networks)
         }
         binding.card4.setOnClickListener {
             view.findNavController().navigate(R.id.action_home_to_friends)

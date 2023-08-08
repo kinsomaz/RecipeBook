@@ -83,7 +83,7 @@ class RecipePage_II : Fragment() {
         if(query != null){
             val filteredList = ArrayList<RecipeData>()
             for(i in recipeList){
-                if (i.title.lowercase(Locale.ROOT).contains(query)){
+                if (i.title!!.lowercase(Locale.ROOT).contains(query)){
                     filteredList.add(i)
                 }
             }

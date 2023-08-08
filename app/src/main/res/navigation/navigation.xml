@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_home_to_recipePageContainer"
             app:destination="@id/recipePageContainer" />
+        <action
+            android:id="@+id/action_home_to_networks"
+            app:destination="@id/networks" />
     </fragment>
     <fragment
         android:id="@+id/signUp"
@@ -93,4 +96,13 @@
         android:name="com.samad.recipebook.ChatOpenActivity"
         android:label="activity_chat__open"
         tools:layout="@layout/activity_chat__open" />
+    <fragment
+        android:id="@+id/networks"
+        android:name="com.samad.recipebook.Networks"
+        android:label="fragment_networks"
+        tools:layout="@layout/fragment_networks" >
+        <action
+            android:id="@+id/action_networks_to_home"
+            app:destination="@id/home" />
+    </fragment>
 </navigation>
