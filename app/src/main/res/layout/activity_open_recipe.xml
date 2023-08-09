@@ -28,8 +28,8 @@
                 <!-- back -->
                 <ImageView
                     android:id="@+id/back"
-                    android:layout_width="45.5dp"
-                    android:layout_height="45.5dp"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
                     android:background="@drawable/round_circle"
                     android:contentDescription="@string/back"
                     android:padding="8dp"
@@ -63,7 +63,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="127dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/round_circle"
+            android:background="@drawable/love_background"
             android:padding="9dp"
             android:src="@drawable/love"
             app:layout_constraintEnd_toEndOf="parent"

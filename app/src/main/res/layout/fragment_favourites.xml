@@ -9,32 +9,30 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_marginTop="60dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginEnd="25dp">
+            android:layout_marginEnd="25dp"
+            android:orientation="horizontal">
 
             <!-- back -->
             <ImageView
                 android:id="@+id/back_favouritesIcon"
-                android:layout_width="45.68dp"
-                android:layout_height="45.68dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
                 android:background="@drawable/round_circle"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="13dp"
+                android:contentDescription="@string/back"
+                android:padding="8dp"
                 android:src="@drawable/back_icon"
-                app:tint="@color/black"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#CC010205" />
 
             <!-- Chats -->
             <TextView
@@ -42,160 +40,47 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="17.13dp"
+                android:layout_marginStart="17dp"
                 android:gravity="center"
-                android:textStyle="bold|normal"
                 android:lineSpacingExtra="13sp"
                 android:text="@string/favouritesPage"
                 android:textAppearance="@style/chatsPage"
-                app:layout_constraintTop_toTopOf="parent"
+                android:textStyle="bold|normal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/back_favouritesIcon"/>
+                app:layout_constraintStart_toEndOf="@id/back_favouritesIcon"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- logo -->
             <ImageView
                 android:id="@+id/logo_favourites"
-                android:layout_width="38.83dp"
-                android:layout_height="42.25dp"
+                android:layout_width="38dp"
+                android:layout_height="42dp"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/logo"
                 android:elevation="20dp"
                 android:outlineAmbientShadowColor="#14000000"
                 android:outlineSpotShadowColor="#80000000"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favourite_recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:layout_marginStart="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="horizontal">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/firstInnerLayout"
-            android:layout_width="188dp"
-            android:layout_height="112dp"
-            android:visibility="visible">
-            <View
-                android:id="@+id/firstFavouritesInnerView"
-                android:layout_width="165dp"
-                android:layout_height="87dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/card1"
-                android:translationZ="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/firstInnerLayout" />
-
-            <ImageView
-                android:id="@+id/bitmap1"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="5dp"
-                android:translationZ="10dp"
-                android:background="@drawable/bitmap1"
-                app:layout_constraintStart_toStartOf="@id/firstFavouritesInnerView"
-                app:layout_constraintEnd_toStartOf="@id/first_recipe_title"
-                app:layout_constraintTop_toTopOf="@id/firstFavouritesInnerView"
-                app:layout_constraintBottom_toBottomOf="@id/firstFavouritesInnerView"
-                />
-
-            <TextView
-                android:id="@+id/first_recipe_title"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="@string/first_recipe_title"
-                android:translationZ="10dp"
-                android:textAppearance="@style/network_recipe_title"
-                android:lineSpacingExtra="3sp"
-                app:layout_constraintEnd_toEndOf="@id/firstFavouritesInnerView"
-                app:layout_constraintStart_toEndOf="@id/bitmap1"
-                app:layout_constraintTop_toTopOf="@id/firstFavouritesInnerView"
-                app:layout_constraintBottom_toBottomOf="@id/firstFavouritesInnerView"
-                />
-            
-            <ImageView
-                android:layout_width="21dp"
-                android:layout_height="21dp"
-                android:layout_marginEnd="11dp"
-                android:layout_marginBottom="11dp"
-                android:translationZ="10dp"
-                android:src="@drawable/love_icon"
-                app:layout_constraintEnd_toEndOf="@id/firstFavouritesInnerView"
-                app:layout_constraintBottom_toBottomOf="@id/firstFavouritesInnerView"/>
+        tools:itemCount="2"
+        tools:listitem="@layout/recipe_view_favourite">
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/secondInnerLayout"
-            android:layout_width="188dp"
-            android:layout_height="112dp"
-            android:visibility="visible">
-            <View
-                android:id="@+id/secondFavouritesInnerView"
-                android:layout_width="165dp"
-                android:layout_height="87dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/card1"
-                android:translationZ="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/secondInnerLayout" />
-
-            <ImageView
-                android:id="@+id/bitmap2"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="5dp"
-                android:translationZ="10dp"
-                android:background="@drawable/bitmap1"
-                app:layout_constraintStart_toStartOf="@id/secondFavouritesInnerView"
-                app:layout_constraintEnd_toStartOf="@id/second_recipe_title"
-                app:layout_constraintTop_toTopOf="@id/secondFavouritesInnerView"
-                app:layout_constraintBottom_toBottomOf="@id/secondFavouritesInnerView"
-                />
-
-            <TextView
-                android:id="@+id/second_recipe_title"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="@string/first_recipe_title"
-                android:translationZ="10dp"
-                android:textAppearance="@style/network_recipe_title"
-                android:lineSpacingExtra="3sp"
-                app:layout_constraintEnd_toEndOf="@id/secondFavouritesInnerView"
-                app:layout_constraintStart_toEndOf="@id/bitmap2"
-                app:layout_constraintTop_toTopOf="@id/secondFavouritesInnerView"
-                app:layout_constraintBottom_toBottomOf="@id/secondFavouritesInnerView"
-                />
-
-            <ImageView
-                android:layout_width="21dp"
-                android:layout_height="21dp"
-                android:layout_marginEnd="11dp"
-                android:layout_marginBottom="11dp"
-                android:translationZ="10dp"
-                android:src="@drawable/love_icon"
-                app:layout_constraintEnd_toEndOf="@id/secondFavouritesInnerView"
-                app:layout_constraintBottom_toBottomOf="@id/secondFavouritesInnerView"/>
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </LinearLayout>
-
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

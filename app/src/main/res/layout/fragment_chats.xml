@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="17.13dp"
+                    android:layout_marginStart="17dp"
                     android:gravity="center"
                     android:lineSpacingExtra="13sp"
                     android:text="@string/chatsPage"
@@ -60,8 +60,8 @@
                 <!-- logo -->
                 <ImageView
                     android:id="@+id/logo_chat"
-                    android:layout_width="38.83dp"
-                    android:layout_height="42.25dp"
+                    android:layout_width="38dp"
+                    android:layout_height="42dp"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/logo"
                     android:elevation="20dp"

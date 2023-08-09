@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -69,12 +70,9 @@ class FriendAdapter(val context: Context, private var users: ArrayList<User>) :
         database.reference.child("userFriend")
             .child(firebaseAuth.uid!!)
             .child(user.uid!!)
-            .child("uid")
             .addValueEventListener(object : ValueEventListener {
-
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    val uid = snapshot.value
-                    if (uid != null) {
+                    if (snapshot.exists()) {
                         holder.binding.addFriend.visibility = View.GONE
                         holder.binding.added.visibility = View.VISIBLE
                     }
@@ -93,6 +91,7 @@ class FriendAdapter(val context: Context, private var users: ArrayList<User>) :
 
     }
 
+
     fun setFilteredList(filteredList: ArrayList<User>) {
         this.users = filteredList
         notifyDataSetChanged()
@@ -103,8 +102,9 @@ class FriendAdapter(val context: Context, private var users: ArrayList<User>) :
         fun setData(user: User?, pos: Int) {
             user?.let {
                 binding.friendName.text = user.name
-                Picasso.with(context)
+                Glide.with(context)
                     .load(user.profileImage)
+                    .placeholder(R.drawable.image_avatar)
                     .into(binding.friendImage)
             }
         }

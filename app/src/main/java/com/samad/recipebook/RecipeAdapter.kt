@@ -31,8 +31,8 @@ class RecipeAdapter( var recipeList: List<RecipeData>) : RecyclerView.Adapter<Re
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bitmap.setImageResource(recipeList[position].bitmap as Int)
         holder.title.text = recipeList[position].title
-        holder.itemView.setOnClickListener {
 
+        holder.itemView.setOnClickListener {
             database = FirebaseDatabase.getInstance()
             storage = FirebaseStorage.getInstance()
             firebaseAuth = FirebaseAuth.getInstance()

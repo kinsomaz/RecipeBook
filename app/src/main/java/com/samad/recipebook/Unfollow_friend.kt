@@ -1,11 +1,9 @@
 package com.samad.recipebook
 
+
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.flexbox.AlignItems
@@ -96,20 +94,6 @@ class Unfollow_friend : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {}
             })
         }
-
-        database.reference.child("userFriend").child(firebaseAuth.uid!!).child(uid).addValueEventListener(object : ValueEventListener{
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (!snapshot.exists()){
-                    binding.addFriendButton.isVisible = true
-
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-        })
 
         binding.addFriendButton.setOnClickListener {
             database.reference.child("userFriend")

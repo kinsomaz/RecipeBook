@@ -147,6 +147,9 @@ class Home : Fragment() {
         binding.card4.setOnClickListener {
             view.findNavController().navigate(R.id.action_home_to_friends)
         }
+        binding.card5.setOnClickListener {
+            view.findNavController().navigate(R.id.action_home_to_favourites)
+        }
 
         return view
     }

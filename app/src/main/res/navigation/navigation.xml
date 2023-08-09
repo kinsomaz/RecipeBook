@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_home_to_networks"
             app:destination="@id/networks" />
+        <action
+            android:id="@+id/action_home_to_favourites"
+            app:destination="@id/favourites" />
     </fragment>
     <fragment
         android:id="@+id/signUp"
@@ -107,5 +110,14 @@
         <action
             android:id="@+id/action_networks_to_recipePageContainer"
             app:destination="@id/recipePageContainer" />
+    </fragment>
+    <fragment
+        android:id="@+id/favourites"
+        android:name="com.samad.recipebook.Favourites"
+        android:label="fragment_favourites"
+        tools:layout="@layout/fragment_favourites" >
+        <action
+            android:id="@+id/action_favourites_to_home"
+            app:destination="@id/home" />
     </fragment>
 </navigation>
