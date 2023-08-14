@@ -15,8 +15,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.samad.recipebook.databinding.FriendViewBinding
 
-
-
 class FriendAdapter(val context: Context, private var users: ArrayList<User>) :
     RecyclerView.Adapter<FriendAdapter.MyViewHolder>() {
 

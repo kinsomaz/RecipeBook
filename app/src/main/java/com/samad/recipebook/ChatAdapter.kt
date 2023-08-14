@@ -15,7 +15,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.samad.recipebook.databinding.ChatViewBinding
 
-
 class ChatAdapter (val context: Context, private val users:ArrayList<User>): RecyclerView.Adapter<ChatAdapter.MyViewHolder>(){
 
     private lateinit var firebaseAuth: FirebaseAuth
