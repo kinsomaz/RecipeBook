@@ -533,6 +533,15 @@
                     tools:layout_editor_absoluteX="149dp"
                     tools:listitem="@layout/notification_view" />
 
+                <TextView
+                    android:id="@+id/welcome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/welcome_to_recipe_book"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

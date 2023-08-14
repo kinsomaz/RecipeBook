@@ -68,5 +68,9 @@
     <string name="similar_recipe">3 Similar Recipes to try out</string>
     <string name="ingre">1/4 cup cornmeal</string>
     <string name="_1">1</string>
+    <string name="welcome_to_recipe_book">Welcome To Recipe Book</string>
+    <string name="networks_you_joined">Networks you joined will appear here</string>
+    <string name="users_on_recipe_book">Users on Recipe Book</string>
+    <string name="your_favourite_recipes_appears_here">Your favourite recipes appears here</string>
 
 </resources>

@@ -7,7 +7,7 @@
     android:fillViewport="true"
     tools:context=".Chats">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical">
@@ -76,8 +76,9 @@
         </androidx.appcompat.widget.Toolbar>
 
         <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/chatRecyclerView"
@@ -85,8 +86,21 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="3dp"
                 tools:listitem="@layout/chat_view" />
+
         </ScrollView>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/add_a_friend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:layout_marginTop="100dp"
+            android:text="Add a friend to start chatting"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

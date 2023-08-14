@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -27,9 +28,13 @@ class Favourites : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var database: FirebaseDatabase
     private lateinit var adapter: FavouriteAdapter
-    private lateinit var recipeList : ArrayList<RecipeData>
+    private lateinit var recipeList: ArrayList<RecipeData>
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         super.onCreate(savedInstanceState)
         binding = FragmentFavouritesBinding.inflate(layoutInflater)
         val view = binding.root
@@ -60,9 +65,12 @@ class Favourites : Fragment() {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     recipeList.clear()
-                    for (snapshot1 in snapshot.children){
-                        val recipe = snapshot1.getValue(RecipeData::class.java)
-                        recipeList.add(recipe!!)
+                    for (snapshot1 in snapshot.children) {
+                        if (snapshot1 != null) {
+                            binding.yourFavourite.isVisible = false
+                            val recipe = snapshot1.getValue(RecipeData::class.java)
+                            recipeList.add(recipe!!)
+                        }
                     }
                     adapter.notifyDataSetChanged()
                 }

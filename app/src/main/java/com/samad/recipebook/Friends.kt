@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -30,7 +31,11 @@ class Friends : Fragment() {
     private lateinit var user: User
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         super.onCreate(savedInstanceState)
         binding = FragmentFriendsBinding.inflate(layoutInflater)
         val view = binding.root
@@ -49,18 +54,19 @@ class Friends : Fragment() {
 
         users = ArrayList()
 
-        adapter = FriendAdapter(this.requireContext(),users)
-        binding.friendsRecyclerView.layoutManager = GridLayoutManager(this.context,1)
+        adapter = FriendAdapter(this.requireContext(), users)
+        binding.friendsRecyclerView.layoutManager = GridLayoutManager(this.context, 1)
 
         database.reference.child("user")
             .child(firebaseAuth.uid!!)
-            .addValueEventListener(object : ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.value != null) {
                         user = snapshot.getValue(User::class.java)!!
                     }
                 }
+
                 override fun onCancelled(error: DatabaseError) {
 
                 }
@@ -69,13 +75,16 @@ class Friends : Fragment() {
         binding.friendsRecyclerView.adapter = adapter
 
         database.reference.child("user")
-            .addValueEventListener(object : ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     users.clear()
-                    for(snapshot1 in snapshot.children){
-                        val user : User? = snapshot1.getValue(User::class.java)
-                        if(!user!!.uid.equals(firebaseAuth.uid)) users.add(user)
+                    for (snapshot1 in snapshot.children) {
+                        if (snapshot1.value != null) {
+                            binding.usersOnRecipeBook.isVisible = false
+                            val user: User? = snapshot1.getValue(User::class.java)
+                            if (!user!!.uid.equals(firebaseAuth.uid)) users.add(user)
+                        }
                     }
                     adapter.notifyDataSetChanged()
                 }
@@ -83,7 +92,7 @@ class Friends : Fragment() {
                 override fun onCancelled(error: DatabaseError) {}
             })
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -102,17 +111,16 @@ class Friends : Fragment() {
     }
 
     private fun filterList(query: String?) {
-        if (query != null){
+        if (query != null) {
             val filteredList = ArrayList<User>()
-            for (i in users){
-                if (i.name!!.lowercase(Locale.ROOT).contains(query)){
+            for (i in users) {
+                if (i.name!!.lowercase(Locale.ROOT).contains(query)) {
                     filteredList.add(i)
                 }
             }
             if (filteredList.isEmpty()) {
                 Toast.makeText(this.context, "No Data found", Toast.LENGTH_SHORT).show()
-            }
-            else{
+            } else {
                 adapter.setFilteredList(filteredList)
             }
         }

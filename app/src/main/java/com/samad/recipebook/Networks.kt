@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -33,9 +34,13 @@ class Networks : Fragment() {
     private lateinit var adapter: NetworkAdapter
     private lateinit var layoutManager: FlexboxLayoutManager
     private lateinit var database: FirebaseDatabase
-    private lateinit var recipeList : ArrayList<RecipeData>
+    private lateinit var recipeList: ArrayList<RecipeData>
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         super.onCreate(savedInstanceState)
         binding = FragmentNetworksBinding.inflate(layoutInflater)
         val view = binding.root
@@ -63,21 +68,24 @@ class Networks : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
         database.reference.child("userRecipeNetwork")
             .child(firebaseAuth.uid!!)
-            .addValueEventListener(object : ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
 
-            override fun onDataChange(snapshot: DataSnapshot) {
-                recipeList.clear()
-                for (snapshot1 in snapshot.children){
-                    val recipe = snapshot1.getValue(RecipeData::class.java)
-                    recipeList.add(recipe!!)
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    recipeList.clear()
+                    for (snapshot1 in snapshot.children) {
+                        if (snapshot1 != null) {
+                            binding.networksYouJoined.isVisible = false
+                            val recipe = snapshot1.getValue(RecipeData::class.java)
+                            recipeList.add(recipe!!)
+                        }
+                    }
+                    adapter.notifyDataSetChanged()
                 }
-                adapter.notifyDataSetChanged()
-            }
 
-            override fun onCancelled(error: DatabaseError) {}
-        })
+                override fun onCancelled(error: DatabaseError) {}
+            })
 
-        searchView.setOnQueryTextListener(object : OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -98,17 +106,16 @@ class Networks : Fragment() {
     }
 
     private fun filterList(query: String?) {
-        if(query != null){
+        if (query != null) {
             val filteredList = ArrayList<RecipeData>()
-            for(i in recipeList){
-                if (i.title!!.lowercase(Locale.ROOT).contains(query)){
+            for (i in recipeList) {
+                if (i.title!!.lowercase(Locale.ROOT).contains(query)) {
                     filteredList.add(i)
                 }
             }
-            if (filteredList.isEmpty()){
-                Toast.makeText(this.context,"No Data found", Toast.LENGTH_SHORT).show()
-            }
-            else{
+            if (filteredList.isEmpty()) {
+                Toast.makeText(this.context, "No Data found", Toast.LENGTH_SHORT).show()
+            } else {
                 adapter.setFilteredList(filteredList)
             }
         }

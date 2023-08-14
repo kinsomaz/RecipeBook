@@ -7,7 +7,7 @@
     android:fillViewport="true"
     tools:context=".Chats">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical">
@@ -15,16 +15,16 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_marginTop="32dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginEnd="25dp">
+                android:layout_marginEnd="25dp"
+                android:orientation="horizontal">
 
                 <!-- back -->
                 <ImageView
@@ -36,10 +36,10 @@
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="13dp"
                     android:src="@drawable/back_icon"
-                    app:tint="@color/black"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#CC010205" />
 
                 <!-- Chats -->
                 <TextView
@@ -47,37 +47,38 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="17.13dp"
+                    android:layout_marginStart="17dp"
                     android:gravity="center"
-                    android:textStyle="bold|normal"
                     android:lineSpacingExtra="13sp"
                     android:text="@string/chatsPage"
                     android:textAppearance="@style/chatsPage"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:textStyle="bold|normal"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/back_chatsIcon"/>
+                    app:layout_constraintStart_toEndOf="@id/back_chatsIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <!-- logo -->
                 <ImageView
                     android:id="@+id/logo_chat"
-                    android:layout_width="38.83dp"
-                    android:layout_height="42.25dp"
+                    android:layout_width="38dp"
+                    android:layout_height="42dp"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/logo"
                     android:elevation="20dp"
                     android:outlineAmbientShadowColor="#14000000"
                     android:outlineSpotShadowColor="#80000000"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
         <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/chatRecyclerView"
@@ -85,8 +86,21 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="3dp"
                 tools:listitem="@layout/chat_view" />
+
         </ScrollView>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/add_a_friend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:layout_marginTop="100dp"
+            android:text="Add a friend to start chatting"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

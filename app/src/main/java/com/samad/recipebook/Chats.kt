@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -25,7 +26,11 @@ class Chats : Fragment() {
     private lateinit var dialog: ProgressDialog
     private lateinit var user: User
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         super.onCreate(savedInstanceState)
         binding = FragmentChatsBinding.inflate(layoutInflater)
         val view = binding.root
@@ -48,27 +53,30 @@ class Chats : Fragment() {
 
         users = ArrayList<User>()
 
-        chatAdapter = ChatAdapter(this.requireContext(),users)
-        val layoutManager = GridLayoutManager(this.context,1)
+        chatAdapter = ChatAdapter(this.requireContext(), users)
+        val layoutManager = GridLayoutManager(this.context, 1)
         binding.chatRecyclerView.layoutManager = layoutManager
 
         binding.chatRecyclerView.adapter = chatAdapter
 
         database.reference.child("userFriend")
             .child(firebaseAuth.uid!!)
-            .addValueEventListener(object :ValueEventListener{
+            .addValueEventListener(object : ValueEventListener {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     users.clear()
-                    for (snapshot1 in snapshot.children){
-                        val user: User? = snapshot1.getValue(User::class.java)
-                        if (!user!!.uid.equals(firebaseAuth.uid)) users.add(user)
+                    for (snapshot1 in snapshot.children) {
+                        if (snapshot1 != null) {
+                            binding.addAFriend.isVisible = false
+                            val user: User? = snapshot1.getValue(User::class.java)
+                            if (!user!!.uid.equals(firebaseAuth.uid)) users.add(user)
+                        }
                     }
                     chatAdapter.notifyDataSetChanged()
                 }
 
                 override fun onCancelled(error: DatabaseError) {}
-            } )
+            })
 
         return view
     }
