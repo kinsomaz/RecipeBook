@@ -10,7 +10,6 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.samad.recipebook.databinding.FragmentRecipePageContainerBinding
 
-
 class RecipePageContainer : Fragment() {
 
     private lateinit var binding: FragmentRecipePageContainerBinding
