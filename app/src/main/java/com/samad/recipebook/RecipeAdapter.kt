@@ -2,11 +2,13 @@ package com.samad.recipebook
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -59,9 +61,11 @@ class RecipeAdapter( var recipeList: List<RecipeData>) : RecyclerView.Adapter<Re
                 }
             }
 
-            val intent = Intent(holder.itemView.context, OpenRecipe::class.java)
-            intent.putExtra("RecipeName",recipeList[position].title)
-            holder.itemView.context.startActivity(intent)
+            val bundle = Bundle().apply {
+                putString("RecipeName",recipeList[position].title)
+
+            }
+            holder.itemView.findNavController().navigate(R.id.action_recipePageContainer_to_openRecipe,bundle)
         }
     }
 

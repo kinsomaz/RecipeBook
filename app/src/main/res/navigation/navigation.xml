@@ -92,6 +92,9 @@
         <action
             android:id="@+id/action_recipePageContainer_to_home"
             app:destination="@id/home" />
+        <action
+            android:id="@+id/action_recipePageContainer_to_openRecipe"
+            app:destination="@id/openRecipe" />
     </fragment>
     <fragment
         android:id="@+id/networks"
@@ -104,6 +107,9 @@
         <action
             android:id="@+id/action_networks_to_recipePageContainer"
             app:destination="@id/recipePageContainer" />
+        <action
+            android:id="@+id/action_networks_to_openRecipe"
+            app:destination="@id/openRecipe" />
     </fragment>
     <fragment
         android:id="@+id/favourites"
@@ -131,5 +137,17 @@
         <action
             android:id="@+id/action_unfollow_friend_to_friends"
             app:destination="@id/friends" />
+    </fragment>
+    <fragment
+        android:id="@+id/openRecipe"
+        android:name="com.samad.recipebook.OpenRecipe"
+        android:label="fragment_open_recipe"
+        tools:layout="@layout/fragment_open_recipe" >
+        <action
+            android:id="@+id/action_openRecipe_to_recipePageContainer"
+            app:destination="@id/recipePageContainer" />
+        <action
+            android:id="@+id/action_openRecipe_to_networks"
+            app:destination="@id/networks" />
     </fragment>
 </navigation>
