@@ -6,7 +6,7 @@
     android:id="@+id/firstLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChatOpenActivity">
+    tools:context=".ChatOpen">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

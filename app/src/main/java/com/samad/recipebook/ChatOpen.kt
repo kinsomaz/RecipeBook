@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -19,13 +22,13 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import com.samad.recipebook.databinding.ActivityChatOpenBinding
+import com.samad.recipebook.databinding.FragmentChatOpenBinding
 import java.util.Calendar
 import java.util.Date
 
-class ChatOpenActivity : AppCompatActivity() {
+class ChatOpen: Fragment() {
 
-    private lateinit var binding: ActivityChatOpenBinding
+    private lateinit var binding: FragmentChatOpenBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var startActivityLauncher: ActivityResultLauncher<String>
 
@@ -39,34 +42,37 @@ class ChatOpenActivity : AppCompatActivity() {
     var senderUid: String? = null
     var receiverUid: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = ActivityChatOpenBinding.inflate(layoutInflater)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding = FragmentChatOpenBinding.inflate(layoutInflater)
         val view = binding.root
-        setContentView(view)
 
         firebaseAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         storage = FirebaseStorage.getInstance()
-        dialog = ProgressDialog(this)
+        dialog = ProgressDialog(this.context
+        )
         dialog!!.setMessage("Uploading image...")
         dialog!!.setCancelable(false)
         messages = ArrayList()
 
-        val name = intent.getStringExtra("name")
-        val profile = intent.getStringExtra("profileUrl")
+        val name = arguments?.getString("name")
+        val profile = arguments?.getString("profileUrl")
         binding.name.text = name
         Glide.with(this).load(profile)
             .placeholder(R.drawable.image_placeholder)
             .into(binding.profile01)
 
-        val uid = intent.getStringExtra("uid")
+        val uid = arguments?.getString("uid")
         receiverUid = uid
 
         binding.toolbar.isVisible = true
         binding.backIcon.setOnClickListener {
-
+            view.findNavController().navigate(R.id.action_chatOpen_to_chats)
         }
 
         startActivityLauncher = registerForActivityResult(ActivityResultContracts.GetContent())
@@ -136,14 +142,14 @@ class ChatOpenActivity : AppCompatActivity() {
                 .child("name")
                 .addValueEventListener(object : ValueEventListener{
 
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val name = snapshot.value
-                    addToHisNotifications(receiverUid!!, "$name sent you a message")
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val name = snapshot.value
+                        addToHisNotifications(receiverUid!!, "$name sent you a message")
 
-                }
+                    }
 
-                override fun onCancelled(error: DatabaseError) {}
-            })
+                    override fun onCancelled(error: DatabaseError) {}
+                })
 
 
             binding.messageBox.setText("")
@@ -194,7 +200,7 @@ class ChatOpenActivity : AppCompatActivity() {
                     .setValue("Online")
             }
         })
-
+        return view
     }
 
     override fun onResume() {

@@ -66,8 +66,8 @@
             android:id="@+id/action_chats_to_home"
             app:destination="@id/home" />
         <action
-            android:id="@+id/action_chats_to_chatOpenActivity2"
-            app:destination="@id/chatOpenActivity2" />
+            android:id="@+id/action_chats_to_chatOpen"
+            app:destination="@id/chatOpen" />
     </fragment>
     <fragment
         android:id="@+id/friends"
@@ -90,15 +90,6 @@
             android:id="@+id/action_recipePageContainer_to_home"
             app:destination="@id/home" />
     </fragment>
-    <activity
-        android:id="@+id/unfollow_friend"
-        android:name="com.samad.recipebook.Unfollow_friend"
-        android:label="Unfollow_friend" />
-    <activity
-        android:id="@+id/chatOpenActivity2"
-        android:name="com.samad.recipebook.ChatOpenActivity"
-        android:label="activity_chat__open"
-        tools:layout="@layout/activity_chat__open" />
     <fragment
         android:id="@+id/networks"
         android:name="com.samad.recipebook.Networks"
@@ -119,5 +110,23 @@
         <action
             android:id="@+id/action_favourites_to_home"
             app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatOpen"
+        android:name="com.samad.recipebook.ChatOpen"
+        android:label="fragment_chat__open"
+        tools:layout="@layout/fragment_chat__open" >
+        <action
+            android:id="@+id/action_chatOpen_to_chats"
+            app:destination="@id/chats" />
+    </fragment>
+    <fragment
+        android:id="@+id/unfollow_friend"
+        android:name="com.samad.recipebook.Unfollow_friend"
+        android:label="unfollow_friend"
+        tools:layout="@layout/unfollow_friend" >
+        <action
+            android:id="@+id/action_unfollow_friend_to_friends"
+            app:destination="@id/friends" />
     </fragment>
 </navigation>

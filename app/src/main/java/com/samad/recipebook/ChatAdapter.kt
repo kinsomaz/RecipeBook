@@ -1,10 +1,11 @@
 package com.samad.recipebook
 
 import android.content.Context
-import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -56,11 +57,13 @@ class ChatAdapter (val context: Context, private val users:ArrayList<User>): Rec
 
         holder.itemView.setOnClickListener {
 
-            val intent = Intent(context,ChatOpenActivity::class.java)
-            intent.putExtra("name",user.name)
-            intent.putExtra("profileUrl",user.profileImage)
-            intent.putExtra("uid",user.uid)
-            context.startActivity(intent)
+            val bundle = Bundle().apply {
+                putString("name",user.name)
+                putString("profileUrl",user.profileImage)
+                putString("uid",user.uid)
+            }
+            holder.itemView.findNavController().navigate(R.id.action_chats_to_chatOpen,bundle)
+
 
         }
 
