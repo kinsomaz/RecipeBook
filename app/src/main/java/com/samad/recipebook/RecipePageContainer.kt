@@ -23,7 +23,7 @@ class RecipePageContainer : Fragment() {
         val view = binding.root
 
         viewPager2  = view.findViewById(R.id.viewPager2)
-        adapter = RecipePageContainerAdapter(parentFragmentManager,lifecycle)
+        adapter = RecipePageContainerAdapter(childFragmentManager,lifecycle)
         viewPager2.adapter = adapter
 
         val tab_layout = view.findViewById<TabLayout>(R.id.tab_layout)
