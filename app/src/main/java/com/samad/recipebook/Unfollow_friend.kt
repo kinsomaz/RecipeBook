@@ -20,11 +20,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.samad.recipebook.databinding.UnfollowFriendBinding
+import com.samad.recipebook.databinding.FragmentUnfollowFriendBinding
 
 class Unfollow_friend : Fragment() {
 
-    private lateinit var binding: UnfollowFriendBinding
+    private lateinit var binding: FragmentUnfollowFriendBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
     private lateinit var adapter: LikesAdapter
@@ -37,7 +37,7 @@ class Unfollow_friend : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = UnfollowFriendBinding.inflate(layoutInflater)
+        binding = FragmentUnfollowFriendBinding.inflate(layoutInflater)
         val view = binding.root
 
         val name = arguments?.getString("name")
@@ -66,9 +66,22 @@ class Unfollow_friend : Fragment() {
                     }
                 }
 
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                override fun onCancelled(error: DatabaseError) {}
+            })
+
+        database.reference.child("userRecipeNetwork")
+            .child(uid!!)
+            .addValueEventListener(object : ValueEventListener{
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if(snapshot.exists()){
+                        val network = snapshot.childrenCount
+                        binding.networksCount.text = "$network"
+                    }
                 }
+
+                override fun onCancelled(error: DatabaseError) {}
+
             })
 
         recyclerView = view.findViewById(R.id.likeRecyclerView)

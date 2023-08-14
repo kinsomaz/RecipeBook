@@ -230,9 +230,22 @@ class Profile : Fragment() {
                     }
                 }
 
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                override fun onCancelled(error: DatabaseError) {}
+            })
+
+        database.reference.child("userRecipeNetwork")
+            .child(uid!!)
+            .addValueEventListener(object : ValueEventListener{
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if(snapshot.exists()){
+                        val network = snapshot.childrenCount
+                        binding.networksCount.text = "$network"
+                    }
                 }
+
+                override fun onCancelled(error: DatabaseError) {}
+
             })
 
         recyclerView = view.findViewById(R.id.likeRecyclerView)
