@@ -24,22 +24,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ChatOpenActivity"
-            android:exported="false">
-
-        </activity>
-
-        <activity android:name=".Unfollow_friend"
-            android:exported="false">
-
-        </activity>
-
-        <activity android:name=".OpenRecipe"
-            android:exported="false">
-
-        </activity>
-
-
     </application>
 
 </manifest>
