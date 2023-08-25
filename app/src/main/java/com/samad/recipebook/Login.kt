@@ -29,7 +29,6 @@ class Login : Fragment() {
     private lateinit var startActivityLauncher: ActivityResultLauncher<Intent>
     private lateinit var view: View
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

@@ -1,7 +1,5 @@
 package com.samad.recipebook
 
-import android.icu.text.CaseMap.Title
-
 class RecipeData{
 
     var title: String? = null
