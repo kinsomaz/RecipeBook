@@ -55,6 +55,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx:24.4.1'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'androidx.core:core-ktx:+'
+    implementation 'androidx.core:core-ktx:+'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:+'
+    implementation 'androidx.core:core-ktx:+'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
